@@ -74,7 +74,7 @@ class User extends BaseUser
     private $image;    
     
     /**
-     * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Enity\Activities",mappedBy="user")
+     * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Activities",mappedBy="user")
      */
     private $activities;
 
