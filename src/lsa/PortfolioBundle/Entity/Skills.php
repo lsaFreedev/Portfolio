@@ -31,41 +31,119 @@ class Skills {
     */
     private $active;
     
+    /**
+     * Association of class
+     */
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+    
     public function __construct() {
         Parent::__construct();
     }
-    
-    public function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getSkill() {
+    /**
+     * Set skill
+     *
+     * @param string $skill
+     * @return Skills
+     */
+    public function setSkill($skill)
+    {
+        $this->skill = $skill;
+
+        return $this;
+    }
+
+    /**
+     * Get skill
+     *
+     * @return string 
+     */
+    public function getSkill()
+    {
         return $this->skill;
     }
 
-    public function getLevel() {
+    /**
+     * Set level
+     *
+     * @param integer $level
+     * @return Skills
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer 
+     */
+    public function getLevel()
+    {
         return $this->level;
     }
 
-    public function getActive() {
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Skills
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
         return $this->active;
     }
 
-    public function setId($id) {
-        $this->id = $id;
+    /**
+     * Set user
+     *
+     * @param \lsa\UserBundle\Entity\User $user
+     * @return Skills
+     */
+    public function setUser(\lsa\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
-    public function setSkill($skill) {
-        $this->skill = $skill;
+    /**
+     * Get user
+     *
+     * @return \lsa\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
-
-    public function setLevel($level) {
-        $this->level = $level;
-    }
-
-    public function setActive($active) {
-        $this->active = $active;
-    }
-
-
 }

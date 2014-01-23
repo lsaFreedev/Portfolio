@@ -29,30 +29,60 @@ class Images {
     public function __construct() {
         Parent::__construct();
     }
-    
-    public function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getImage() {
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Images
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
         return $this->image;
     }
 
-    public function getActive() {
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Images
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
         return $this->active;
     }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function setImage($image) {
-        $this->image = $image;
-    }
-
-    public function setActive($active) {
-        $this->active = $active;
-    }
-
-
 }

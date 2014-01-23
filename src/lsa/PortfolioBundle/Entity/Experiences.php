@@ -51,75 +51,211 @@ class Experiences {
     */    
     private $active;
     
+    /**
+     * Association of class
+     */
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+    
     public function __construct(){
         Parent::__construct();
     }
     
-    public function getId() {
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getJob() {
+    /**
+     * Set job
+     *
+     * @param string $job
+     * @return Experiences
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+
+        return $this;
+    }
+
+    /**
+     * Get job
+     *
+     * @return string 
+     */
+    public function getJob()
+    {
         return $this->job;
     }
 
-    public function getEmployer() {
+    /**
+     * Set employer
+     *
+     * @param string $employer
+     * @return Experiences
+     */
+    public function setEmployer($employer)
+    {
+        $this->employer = $employer;
+
+        return $this;
+    }
+
+    /**
+     * Get employer
+     *
+     * @return string 
+     */
+    public function getEmployer()
+    {
         return $this->employer;
     }
 
-    public function getDescription() {
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Experiences
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getIscurrent() {
+    /**
+     * Set iscurrent
+     *
+     * @param boolean $iscurrent
+     * @return Experiences
+     */
+    public function setIscurrent($iscurrent)
+    {
+        $this->iscurrent = $iscurrent;
+
+        return $this;
+    }
+
+    /**
+     * Get iscurrent
+     *
+     * @return boolean 
+     */
+    public function getIscurrent()
+    {
         return $this->iscurrent;
     }
 
-    public function getStartdate() {
+    /**
+     * Set startdate
+     *
+     * @param \DateTime $startdate
+     * @return Experiences
+     */
+    public function setStartdate($startdate)
+    {
+        $this->startdate = $startdate;
+
+        return $this;
+    }
+
+    /**
+     * Get startdate
+     *
+     * @return \DateTime 
+     */
+    public function getStartdate()
+    {
         return $this->startdate;
     }
 
-    public function getEnddate() {
+    /**
+     * Set enddate
+     *
+     * @param \DateTime $enddate
+     * @return Experiences
+     */
+    public function setEnddate($enddate)
+    {
+        $this->enddate = $enddate;
+
+        return $this;
+    }
+
+    /**
+     * Get enddate
+     *
+     * @return \DateTime 
+     */
+    public function getEnddate()
+    {
         return $this->enddate;
     }
 
-    public function getActive() {
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Experiences
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
         return $this->active;
     }
 
-    public function setId($id) {
-        $this->id = $id;
+    /**
+     * Set user
+     *
+     * @param \lsa\UserBundle\Entity\User $user
+     * @return Experiences
+     */
+    public function setUser(\lsa\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
-    public function setJob($job) {
-        $this->job = $job;
+    /**
+     * Get user
+     *
+     * @return \lsa\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
-
-    public function setEmployer($employer) {
-        $this->employer = $employer;
-    }
-
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-
-    public function setIscurrent($iscurrent) {
-        $this->iscurrent = $iscurrent;
-    }
-
-    public function setStartdate($startdate) {
-        $this->startdate = $startdate;
-    }
-
-    public function setEnddate($enddate) {
-        $this->enddate = $enddate;
-    }
-
-    public function setActive($active) {
-        $this->active = $active;
-    }
-
-
-    
 }
-

@@ -34,38 +34,83 @@ class Cv {
     public function __construct() {
         Parent::__construct();
     }
-    
-    public function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getTitle() {
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Cv
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
         return $this->title;
     }
 
-    public function getFile() {
+    /**
+     * Set file
+     *
+     * @param string $file
+     * @return Cv
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return string 
+     */
+    public function getFile()
+    {
         return $this->file;
     }
 
-    public function getActive() {
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Cv
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
         return $this->active;
     }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function setTitle($title) {
-        $this->title = $title;
-    }
-
-    public function setFile($file) {
-        $this->file = $file;
-    }
-
-    public function setActive($active) {
-        $this->active = $active;
-    }
-
-
 }

@@ -26,34 +26,96 @@ class Activities {
     */
     private $avtive;
     
+     /**
+     * Association of class
+     */
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User",inversedBy="activities")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+    
     public function __construct() {
         Parent::__construct();
     }
-    
-    public function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getDescription() {
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Activities
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getAvtive() {
+    /**
+     * Set avtive
+     *
+     * @param boolean $avtive
+     * @return Activities
+     */
+    public function setAvtive($avtive)
+    {
+        $this->avtive = $avtive;
+
+        return $this;
+    }
+
+    /**
+     * Get avtive
+     *
+     * @return boolean 
+     */
+    public function getAvtive()
+    {
         return $this->avtive;
     }
 
-    public function setId($id) {
-        $this->id = $id;
+    /**
+     * Set user
+     *
+     * @param \lsa\UserBundle\Entity\User $user
+     * @return Activities
+     */
+    public function setUser(\lsa\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
-    public function setDescription($description) {
-        $this->description = $description;
+    /**
+     * Get user
+     *
+     * @return \lsa\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
-
-    public function setAvtive($avtive) {
-        $this->avtive = $avtive;
-    }
-
-
-    
 }

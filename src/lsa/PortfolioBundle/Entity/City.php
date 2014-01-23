@@ -24,22 +24,37 @@ class City {
     public function __construct() {
         Parent::__construct();
     }
-    
-    public function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getCity() {
+    /**
+     * Set city
+     *
+     * @param string $city
+     * @return City
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
         return $this->city;
     }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function setCity($city) {
-        $this->city = $city;
-    }
-
-
 }

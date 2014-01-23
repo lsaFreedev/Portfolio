@@ -29,32 +29,60 @@ class Level {
     public function __construct(){
         Parent::__construct();
     }
-    
-    public function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getLevel() {
+    /**
+     * Set level
+     *
+     * @param string $level
+     * @return Level
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return string 
+     */
+    public function getLevel()
+    {
         return $this->level;
     }
 
-    public function getActive() {
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Level
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
         return $this->active;
     }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function setLevel($level) {
-        $this->level = $level;
-    }
-
-    public function setActive($active) {
-        $this->active = $active;
-    }
-
-
-    
 }
-

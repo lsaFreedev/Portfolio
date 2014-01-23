@@ -42,56 +42,167 @@ class Educations
     */     
     private $active;
     
+    /**
+     * Association of class
+     */
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+    
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
     
-    public function getId() {
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getSchool() {
+    /**
+     * Set school
+     *
+     * @param string $school
+     * @return Educations
+     */
+    public function setSchool($school)
+    {
+        $this->school = $school;
+
+        return $this;
+    }
+
+    /**
+     * Get school
+     *
+     * @return string 
+     */
+    public function getSchool()
+    {
         return $this->school;
     }
 
-    public function getDescription() {
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Educations
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getStartdate() {
+    /**
+     * Set startdate
+     *
+     * @param \DateTime $startdate
+     * @return Educations
+     */
+    public function setStartdate($startdate)
+    {
+        $this->startdate = $startdate;
+
+        return $this;
+    }
+
+    /**
+     * Get startdate
+     *
+     * @return \DateTime 
+     */
+    public function getStartdate()
+    {
         return $this->startdate;
     }
 
-    public function getEnddate() {
+    /**
+     * Set enddate
+     *
+     * @param \DateTime $enddate
+     * @return Educations
+     */
+    public function setEnddate($enddate)
+    {
+        $this->enddate = $enddate;
+
+        return $this;
+    }
+
+    /**
+     * Get enddate
+     *
+     * @return \DateTime 
+     */
+    public function getEnddate()
+    {
         return $this->enddate;
     }
 
-    public function getActive() {
-        return $this->active;
-    }  
-
-    public function setSchool($school) {
-        $this->school = $school;
-    }
-
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-
-    public function setStartdate($startdate) {
-        $this->startdate = $startdate;
-    }
-
-    public function setEnddate($enddate) {
-        $this->enddate = $enddate;
-    }
-
-    public function setActive($active) {
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Educations
+     */
+    public function setActive($active)
+    {
         $this->active = $active;
+
+        return $this;
     }
 
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
 
-    
+    /**
+     * Set user
+     *
+     * @param \lsa\UserBundle\Entity\User $user
+     * @return Educations
+     */
+    public function setUser(\lsa\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \lsa\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

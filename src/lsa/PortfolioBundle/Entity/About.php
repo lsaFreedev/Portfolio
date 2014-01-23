@@ -28,31 +28,61 @@ class About {
     
     public function __construct() {
         Parent::__construct();
-    }
-    
-    public function getId() {
+    }    
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getDescription() {
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return About
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getAvtive() {
+    /**
+     * Set avtive
+     *
+     * @param boolean $avtive
+     * @return About
+     */
+    public function setAvtive($avtive)
+    {
+        $this->avtive = $avtive;
+
+        return $this;
+    }
+
+    /**
+     * Get avtive
+     *
+     * @return boolean 
+     */
+    public function getAvtive()
+    {
         return $this->avtive;
     }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-
-    public function setAvtive($avtive) {
-        $this->avtive = $avtive;
-    }
-
-
 }

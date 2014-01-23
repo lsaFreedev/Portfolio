@@ -36,49 +36,142 @@ class Projects {
     */
     private $active;
     
+    /**
+     * Association of class
+     */
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+    
     public function __construct() {
         Parent::__construct();
     }
-    
-    public function getId() {
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getTitle() {
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Projects
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
         return $this->title;
     }
 
-    public function getUrl() {
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Projects
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
         return $this->url;
     }
 
-    public function getDescription() {
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Projects
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getActive() {
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Projects
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
         return $this->active;
     }
 
-    public function setId($id) {
-        $this->id = $id;
+    /**
+     * Set user
+     *
+     * @param \lsa\UserBundle\Entity\User $user
+     * @return Projects
+     */
+    public function setUser(\lsa\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
-    public function setTitle($title) {
-        $this->title = $title;
+    /**
+     * Get user
+     *
+     * @return \lsa\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
-
-    public function setUrl($url) {
-        $this->url = $url;
-    }
-
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-
-    public function setActive($active) {
-        $this->active = $active;
-    }
-
-
 }
