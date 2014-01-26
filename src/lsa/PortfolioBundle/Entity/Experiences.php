@@ -56,7 +56,7 @@ class Experiences {
      */
     
     /**
-     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User",inversedBy="experiences")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

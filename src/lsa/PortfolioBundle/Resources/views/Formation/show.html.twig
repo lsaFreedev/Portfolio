@@ -1,0 +1,29 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : formations{% endblock %}
+{% block header %}<h1>Protfolio : administration : Formatoion</h1>{% endblock %}
+{% block body %}
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>School</td>
+        <td>Description</td>
+        <td>Startdate</td>
+        <td>Endtdate</td>
+        <td>Active</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for formation in formations %}
+    <tr>
+        <td><a href="">{{ formation.id }}</a></td>
+        <td><a href="">{{ formation.school }}</a></td>
+        <td><a href="">{{ formation.description|slice(0, 20) }}..</a></td>
+        <td><a href="">{{ formation.startdate|date("d/m/Y") }}</a></td>
+        <td><a href="">{{ formation.enddate|date("d/m/Y") }}</a></td>
+        <td><a href="">{{ formation.active }}</a></td>
+        <td><a href="">Edit</a></td>
+        <td><a href="">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

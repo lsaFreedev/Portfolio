@@ -4,6 +4,8 @@ namespace lsa\UserBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
+use lsa\PortfolioBundle\Entity\Activities;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
@@ -74,10 +76,34 @@ class User extends BaseUser
     private $image;    
     
     /**
+     * Association of class : bidirectionnelle
+     */
+    
+    /**
      * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Activities",mappedBy="user")
      */
     private $activities;
-
+    
+    /**
+     * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Educations",mappedBy="user")
+     */
+    private $educations;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Experiences",mappedBy="user")
+     */
+    private $experiences;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Projects",mappedBy="user")
+     */
+    private $projects;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Skills",mappedBy="user")
+     */
+    private $skills;
+    
     public function __construct()
     {
         parent::__construct();
@@ -307,9 +333,9 @@ class User extends BaseUser
      * @param \lsa\PortfolioBundle\Enity\Activities $activities
      * @return User
      */
-    public function addActivity(\lsa\PortfolioBundle\Enity\Activities $activities)
+    public function addActivity(Activities $activities )
     {
-        $this->activities[] = $activities;
+        $this->activities->add($activities);
         $activities->setUser($this);
         return $this;
     }
@@ -319,7 +345,7 @@ class User extends BaseUser
      *
      * @param \lsa\PortfolioBundle\Enity\Activities $activities
      */
-    public function removeActivity(\lsa\PortfolioBundle\Enity\Activities $activities)
+    public function removeActivity(Activities $activities)
     {
         $this->activities->removeElement($activities);        
     }
@@ -332,5 +358,137 @@ class User extends BaseUser
     public function getActivities()
     {
         return $this->activities;
+    }
+
+    /**
+     * Add educations
+     *
+     * @param \lsa\PortfolioBundle\Entity\Educations $educations
+     * @return User
+     */
+    public function addEducation(\lsa\PortfolioBundle\Entity\Educations $educations)
+    {
+        $this->educations[] = $educations;
+
+        return $this;
+    }
+
+    /**
+     * Remove educations
+     *
+     * @param \lsa\PortfolioBundle\Entity\Educations $educations
+     */
+    public function removeEducation(\lsa\PortfolioBundle\Entity\Educations $educations)
+    {
+        $this->educations->removeElement($educations);
+    }
+
+    /**
+     * Get educations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEducations()
+    {
+        return $this->educations;
+    }
+
+    /**
+     * Add experiences
+     *
+     * @param \lsa\PortfolioBundle\Entity\Experiences $experiences
+     * @return User
+     */
+    public function addExperience(\lsa\PortfolioBundle\Entity\Experiences $experiences)
+    {
+        $this->experiences[] = $experiences;
+
+        return $this;
+    }
+
+    /**
+     * Remove experiences
+     *
+     * @param \lsa\PortfolioBundle\Entity\Experiences $experiences
+     */
+    public function removeExperience(\lsa\PortfolioBundle\Entity\Experiences $experiences)
+    {
+        $this->experiences->removeElement($experiences);
+    }
+
+    /**
+     * Get experiences
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExperiences()
+    {
+        return $this->experiences;
+    }
+
+    /**
+     * Add projects
+     *
+     * @param \lsa\PortfolioBundle\Entity\Projects $projects
+     * @return User
+     */
+    public function addProject(\lsa\PortfolioBundle\Entity\Projects $projects)
+    {
+        $this->projects[] = $projects;
+
+        return $this;
+    }
+
+    /**
+     * Remove projects
+     *
+     * @param \lsa\PortfolioBundle\Entity\Projects $projects
+     */
+    public function removeProject(\lsa\PortfolioBundle\Entity\Projects $projects)
+    {
+        $this->projects->removeElement($projects);
+    }
+
+    /**
+     * Get projects
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
+
+    /**
+     * Add skills
+     *
+     * @param \lsa\PortfolioBundle\Entity\Skills $skills
+     * @return User
+     */
+    public function addSkill(\lsa\PortfolioBundle\Entity\Skills $skills)
+    {
+        $this->skills[] = $skills;
+
+        return $this;
+    }
+
+    /**
+     * Remove skills
+     *
+     * @param \lsa\PortfolioBundle\Entity\Skills $skills
+     */
+    public function removeSkill(\lsa\PortfolioBundle\Entity\Skills $skills)
+    {
+        $this->skills->removeElement($skills);
+    }
+
+    /**
+     * Get skills
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSkills()
+    {
+        return $this->skills;
     }
 }

@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    public function search($user){      
+        $qb = $this->createQueryBuilder('u')  
+               ->where("u.username LIKE :user OR u.firstname LIKE :user OR u.lastname LIKE :user OR u.email LIKE :user ")
+               ->setParameter('user', '%'.$user.'%');             
+ 
+        return $qb->getQuery()->getResult();
+    }
 }

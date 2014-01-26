@@ -136,8 +136,38 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // portfolio_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_homepage')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\DefaultController::indexAction',));
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'portfolio_homepage');
+            }
+
+            return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\DefaultController::indexAction',  '_route' => 'portfolio_homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/admin')) {
+            // portfolio_homepage_admin
+            if ($pathinfo === '/admin') {
+                return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\AdminController::indexAction',  '_route' => 'portfolio_homepage_admin',);
+            }
+
+            if (0 === strpos($pathinfo, '/admin/formation')) {
+                // portfolio_formation_admin
+                if ($pathinfo === '/admin/formation') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\FormationController::indexAction',  '_route' => 'portfolio_formation_admin',);
+                }
+
+                // portfolio_formation_show_admin
+                if (0 === strpos($pathinfo, '/admin/formation/show') && preg_match('#^/admin/formation/show(?:/(?P<user>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_formation_show_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\FormationController::showAction',  'user' => 1,));
+                }
+
+                // portfolio_formation_edit_admin
+                if (0 === strpos($pathinfo, '/admin/formation/edit') && preg_match('#^/admin/formation/edit/(?P<education>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_formation_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\FormationController::editAction',));
+                }
+
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/log')) {

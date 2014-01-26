@@ -1,3 +1,26 @@
 portfolio_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: PortfolioBundle:Default:index }
+
+
+
+
+portfolio_homepage_admin:
+    pattern:  /admin
+    defaults: { _controller: PortfolioBundle:Admin:index }
+
+portfolio_formation_admin:
+    pattern: /admin/formation
+    defaults: {_controller: PortfolioBundle:Formation:index }
+
+portfolio_formation_show_admin:
+    pattern: /admin/formation/show/{user}
+    defaults: {_controller: PortfolioBundle:Formation:show,user:1 }
+    requirements:
+        user: \d+
+
+portfolio_formation_edit_admin:
+    pattern: /admin/formation/edit/{education}
+    defaults: {_controller: PortfolioBundle:Formation:edit }
+    requirements:
+        education: \d+

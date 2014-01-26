@@ -47,7 +47,7 @@ class Educations
      */
     
     /**
-     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User",inversedBy="educations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

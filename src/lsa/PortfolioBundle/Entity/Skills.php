@@ -36,7 +36,7 @@ class Skills {
      */
     
     /**
-     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User",inversedBy="skills")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

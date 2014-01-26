@@ -1,0 +1,32 @@
+<form action="{{ path(actionForm) }}" method="post">
+    <label for="user">user</label> <input type="search" placeholder="username,firstname,lastname,email.." name="user" id="user">
+    <input type="submit" name="search" value="search" id="search">
+</form>
+<table border="1">
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            username
+        </td>
+        <td>
+            firstname
+        </td>
+        <td>
+            lastname
+        </td>
+        <td>
+            email
+        </td>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.id }}</a></td>
+        <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.username }}</a></td>
+        <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.firstname }}</a></td>
+        <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.lastname }}</a></td>
+        <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.email }}</a></td>
+    </tr>    
+    {% endfor %}
+</table>

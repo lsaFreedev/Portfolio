@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <title>{% block title %}Portfolio : Administration{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/portfolio/css/admin.css') }}"  media="screen" />
+        {% endblock %}                
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                {% block header %}
+                    <h1>Protfolio : Administarion</h1>
+                {% endblock %}
+            </header> 
+            <section>
+                <aside>
+                     <nav>
+                        {% block nav %}
+                            <ul>
+                                <li><a href="{{ path('portfolio_homepage_admin') }}">Accueil</a></li>
+                                <li><a href="{{ path('portfolio_formation_admin') }}">Formations</a></li>
+                                <li><a href="">Expériences</a></li>
+                                <li><a href="">Compétences</a></li>
+                                <li><a href="">Compétences</a></li>
+                                <li><a href="">Compétences</a></li>
+                            </ul>
+                        {% endblock %}
+                     </nav>
+                     {% block aside %}
+                        aside
+                     {% endblock %}
+                </aside>
+                <div id="content">
+                    {% block body %}
+                        body
+                    {% endblock %}
+                </div>
+            </section>
+            <div class="clear"></div>
+            <footer>
+                {% block footer %}Footer{% endblock %}
+            </footer>
+            {% block javascripts %}{% endblock %}
+        </body>
+    </div>
+</html>

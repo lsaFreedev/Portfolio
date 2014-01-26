@@ -41,7 +41,7 @@ class Projects {
      */
     
     /**
-     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="lsa\UserBundle\Entity\User",inversedBy="projects")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
