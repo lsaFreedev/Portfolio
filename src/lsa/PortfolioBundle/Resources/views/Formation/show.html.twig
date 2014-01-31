@@ -2,7 +2,17 @@
 {% block title %}Portfolio : Administration : formations{% endblock %}
 {% block header %}<h1>Protfolio : administration : Formatoion</h1>{% endblock %}
 {% block body %}
-<table border="1">
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_formation_add_admin') }}" class="btn btn-success">New</a>
+</div>
+<table class="table table-bordered table-striped table-condensed">
     <tr>
         <td>ID</td>
         <td>School</td>
@@ -15,14 +25,20 @@
     </tr>
     {% for formation in formations %}
     <tr>
-        <td><a href="">{{ formation.id }}</a></td>
-        <td><a href="">{{ formation.school }}</a></td>
-        <td><a href="">{{ formation.description|slice(0, 20) }}..</a></td>
-        <td><a href="">{{ formation.startdate|date("d/m/Y") }}</a></td>
-        <td><a href="">{{ formation.enddate|date("d/m/Y") }}</a></td>
-        <td><a href="">{{ formation.active }}</a></td>
-        <td><a href="">Edit</a></td>
-        <td><a href="">Delete</a></td>
+        <td><a href="{{ path('portfolio_formation_edit_admin',{'education':formation.id}) }}">{{ formation.id }}</a></td>
+        <td><a href="{{ path('portfolio_formation_edit_admin',{'education':formation.id}) }}">{{ formation.school }}</a></td>
+        <td><a href="{{ path('portfolio_formation_edit_admin',{'education':formation.id}) }}">{{ formation.description|slice(0, 20) }}..</a></td>
+        <td><a href="{{ path('portfolio_formation_edit_admin',{'education':formation.id}) }}">{{ formation.startdate|date("d/m/Y") }}</a></td>
+        <td><a href="{{ path('portfolio_formation_edit_admin',{'education':formation.id}) }}">{{ formation.enddate|date("d/m/Y") }}</a></td>
+        <td>
+            {% if formation.active == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_formation_edit_admin',{'education':formation.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_formation_delete_admin',{'education':formation.id}) }}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>

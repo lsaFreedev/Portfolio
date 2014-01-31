@@ -4,46 +4,51 @@
         <title>{% block title %}Portfolio : Administration{% endblock %}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/portfolio/css/bootstrap.css') }}"  media="screen" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/portfolio/css/bootstrap-responsive.css') }}"  media="screen" />                       
             <link rel="stylesheet" type="text/css" href="{{ asset('bundles/portfolio/css/admin.css') }}"  media="screen" />
         {% endblock %}                
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div id="container">
-            <header>
+        <div class="container-fluid">
+            <header class="page-header">
                 {% block header %}
                     <h1>Protfolio : Administarion</h1>
                 {% endblock %}
-            </header> 
-            <section>
-                <aside>
-                     <nav>
-                        {% block nav %}
-                            <ul>
-                                <li><a href="{{ path('portfolio_homepage_admin') }}">Accueil</a></li>
-                                <li><a href="{{ path('portfolio_formation_admin') }}">Formations</a></li>
-                                <li><a href="">Expériences</a></li>
-                                <li><a href="">Compétences</a></li>
-                                <li><a href="">Compétences</a></li>
-                                <li><a href="">Compétences</a></li>
-                            </ul>
-                        {% endblock %}
-                     </nav>
+            </header>             
+            <div class="row-fluid">
+                 <div class="span2 well well-larg">
+                     {% block nav %}
+                         <ul class="nav nav-pills nav-tabs nav-stacked" >
+                             <li><a href="{{ path('portfolio_homepage_admin') }}">Accueil</a></li>
+                             <li><a href="{{ path('portfolio_user_admin') }}">Utilisateur</a></li>
+                             <li><a href="{{ path('portfolio_formation_admin') }}">Formations</a></li>
+                             <li><a href="">Expériences</a></li>
+                             <li><a href="">Compétences</a></li>
+                             <li><a href="">Compétences</a></li>
+                             <li><a href="">Compétences</a></li>
+                             <li><a href="{{ path('portfolio_city_admin') }}">City</a></li>
+                             <li><a href="{{ path('portfolio_level_admin') }}">Level</a></li>
+                         </ul>
+                     {% endblock %}                     
                      {% block aside %}
-                        aside
+                       <!-- aside-->
                      {% endblock %}
-                </aside>
-                <div id="content">
-                    {% block body %}
-                        body
-                    {% endblock %}
-                </div>
-            </section>
+                 </div>
+                 <div class="span10 well well-larg">
+                     {% block body %}
+                         body
+                     {% endblock %}
+                 </div>   
+            </div>
             <div class="clear"></div>
-            <footer>
-                {% block footer %}Footer{% endblock %}
+            <footer class="row-fluid well-small text-center">
+                {% block footer %}
+                    <p>Lsa FreeDev &copy; 2014</p>
+                {% endblock %}
             </footer>
             {% block javascripts %}{% endblock %}
-        </body>
-    </div>
+       </div>
+    </body>    
 </html>

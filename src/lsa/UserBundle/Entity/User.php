@@ -70,7 +70,7 @@ class User extends BaseUser
     private $level;
     
     /**
-     * @ORM\OneToOne(targetEntity="lsa\portfoliobundle\Entity\Images",cascade={"remove"})
+     * @ORM\OneToOne(targetEntity="lsa\portfoliobundle\Entity\Images",cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $image;    

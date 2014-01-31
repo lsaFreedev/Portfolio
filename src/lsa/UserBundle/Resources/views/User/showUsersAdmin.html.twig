@@ -1,0 +1,47 @@
+{% extends "::admin.html.twig" %}
+
+{% block body %}
+    <form action="" method="post" class="well form-search">
+        <div class="input-append">
+            <input type="search" placeholder="username,firstname,lastname,email.." name="user" id="user" class="search-query input-xlarge">        
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>    
+    </form>
+    {% block newUser %} {% endblock %}
+    <table class="table table-bordered table-striped table-condensed">
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                username
+            </td>
+            <td>
+                firstname
+            </td>
+            <td>
+                lastname
+            </td>
+            <td>
+                email
+            </td>
+            <td>
+                edit
+            </td>
+            <td>
+                delete
+            </td>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.id }}</a></td>
+            <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.username }}</a></td>
+            <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.firstname }}</a></td>
+            <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.lastname }}</a></td>
+            <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.email }}</a></td>
+            <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">Edit</a></td>
+            <td><a href="{{ path( 'portfolio_user_delete_admin',{'user':user.id} ) }}">Delete</a></td>
+        </tr>    
+        {% endfor %}
+    </table>
+{% endblock %}

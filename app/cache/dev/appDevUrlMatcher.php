@@ -161,9 +161,65 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_formation_show_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\FormationController::showAction',  'user' => 1,));
                 }
 
+                // portfolio_formation_add_admin
+                if ($pathinfo === '/admin/formation/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\FormationController::addAction',  '_route' => 'portfolio_formation_add_admin',);
+                }
+
                 // portfolio_formation_edit_admin
                 if (0 === strpos($pathinfo, '/admin/formation/edit') && preg_match('#^/admin/formation/edit/(?P<education>\\d+)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_formation_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\FormationController::editAction',));
+                }
+
+                // portfolio_formation_delete_admin
+                if (0 === strpos($pathinfo, '/admin/formation/delete') && preg_match('#^/admin/formation/delete/(?P<education>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_formation_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\FormationController::deleteAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/city')) {
+                // portfolio_city_admin
+                if ($pathinfo === '/admin/city') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CityController::indexAction',  '_route' => 'portfolio_city_admin',);
+                }
+
+                // portfolio_city_add_admin
+                if ($pathinfo === '/admin/city/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CityController::addAction',  '_route' => 'portfolio_city_add_admin',);
+                }
+
+                // portfolio_city_edit_admin
+                if (0 === strpos($pathinfo, '/admin/city/edit') && preg_match('#^/admin/city/edit/(?P<city>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_city_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CityController::editAction',));
+                }
+
+                // portfolio_city_delete_admin
+                if (0 === strpos($pathinfo, '/admin/city/delete') && preg_match('#^/admin/city/delete/(?P<city>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_city_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CityController::deleteAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/level')) {
+                // portfolio_level_admin
+                if ($pathinfo === '/admin/level') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\LevelController::indexAction',  '_route' => 'portfolio_level_admin',);
+                }
+
+                // portfolio_level_add_admin
+                if ($pathinfo === '/admin/level/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\LevelController::addAction',  '_route' => 'portfolio_level_add_admin',);
+                }
+
+                // portfolio_level_edit_admin
+                if (0 === strpos($pathinfo, '/admin/level/edit') && preg_match('#^/admin/level/edit/(?P<level>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_level_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\LevelController::editAction',));
+                }
+
+                // portfolio_level_delete_admin
+                if (0 === strpos($pathinfo, '/admin/level/delete') && preg_match('#^/admin/level/delete/(?P<level>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_level_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\LevelController::deleteAction',));
                 }
 
             }
@@ -332,9 +388,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_fos_user_change_password:
 
-        // user_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_homepage')), array (  '_controller' => 'lsa\\UserBundle\\Controller\\DefaultController::indexAction',));
+        if (0 === strpos($pathinfo, '/admin/user')) {
+            // portfolio_user_admin
+            if ($pathinfo === '/admin/user') {
+                return array (  '_controller' => 'lsa\\UserBundle\\Controller\\UserController::indexAction',  '_route' => 'portfolio_user_admin',);
+            }
+
+            // portfolio_user_add_admin
+            if ($pathinfo === '/admin/user/add') {
+                return array (  '_controller' => 'lsa\\UserBundle\\Controller\\UserController::addAction',  '_route' => 'portfolio_user_add_admin',);
+            }
+
+            // portfolio_user_edit_admin
+            if (0 === strpos($pathinfo, '/admin/user/edit') && preg_match('#^/admin/user/edit/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_user_edit_admin')), array (  '_controller' => 'lsa\\UserBundle\\Controller\\UserController::editAction',));
+            }
+
+            // portfolio_user_delete_admin
+            if (0 === strpos($pathinfo, '/admin/user/delete') && preg_match('#^/admin/user/delete/(?P<user>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_user_delete_admin')), array (  '_controller' => 'lsa\\UserBundle\\Controller\\UserController::deleteAction',));
+            }
+
         }
 
         // _welcome

@@ -4,11 +4,12 @@ portfolio_homepage:
 
 
 
-
+#rout Admin
 portfolio_homepage_admin:
     pattern:  /admin
     defaults: { _controller: PortfolioBundle:Admin:index }
 
+#rout Education
 portfolio_formation_admin:
     pattern: /admin/formation
     defaults: {_controller: PortfolioBundle:Formation:index }
@@ -19,8 +20,62 @@ portfolio_formation_show_admin:
     requirements:
         user: \d+
 
+portfolio_formation_add_admin:
+    pattern: /admin/formation/add
+    defaults: {_controller: PortfolioBundle:Formation:add }
+
 portfolio_formation_edit_admin:
     pattern: /admin/formation/edit/{education}
     defaults: {_controller: PortfolioBundle:Formation:edit }
     requirements:
         education: \d+
+
+portfolio_formation_delete_admin:
+    pattern: /admin/formation/delete/{education}
+    defaults: {_controller: PortfolioBundle:Formation:delete }
+    requirements:
+        education: \d+
+
+#rout City
+portfolio_city_admin:
+    pattern: /admin/city
+    defaults: {_controller: PortfolioBundle:City:index }   
+
+portfolio_city_add_admin:
+    pattern: /admin/city/add
+    defaults: {_controller: PortfolioBundle:City:add }
+        
+portfolio_city_edit_admin:
+    pattern: /admin/city/edit/{city}
+    defaults: {_controller: PortfolioBundle:City:edit }
+    requirements:
+        city: \d+
+
+portfolio_city_delete_admin:
+    pattern: /admin/city/delete/{city}
+    defaults: {_controller: PortfolioBundle:City:delete }
+    requirements:
+        city: \d+        
+
+#rout Level
+portfolio_level_admin:
+    pattern: /admin/level
+    defaults: {_controller: PortfolioBundle:Level:index }   
+
+portfolio_level_add_admin:
+    pattern: /admin/level/add
+    defaults: {_controller: PortfolioBundle:Level:add }
+        
+portfolio_level_edit_admin:
+    pattern: /admin/level/edit/{level}
+    defaults: {_controller: PortfolioBundle:Level:edit }
+    requirements:
+        level: \d+
+
+portfolio_level_delete_admin:
+    pattern: /admin/level/delete/{level}
+    defaults: {_controller: PortfolioBundle:Level:delete }
+    requirements:
+        level: \d+ 
+
+ 

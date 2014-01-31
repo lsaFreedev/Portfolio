@@ -1,0 +1,39 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : Level{% endblock %}
+{% block header %}<h1>Protfolio : administration : Level</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_level_add_admin') }}" class="btn btn-success">New</a> 
+</div>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td>ID</td>
+        <td>Level</td>               
+        <td>Active</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for level in levels %}
+    <tr>
+        <td><a href="{{ path('portfolio_level_edit_admin',{'level':level.id}) }}">{{ level.id }}</a></td>
+        <td><a href="{{ path('portfolio_level_edit_admin',{'level':level.id}) }}">{{ level.level }}</a></td>
+        <td>
+            {% if level.active == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_level_edit_admin',{'level':level.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_level_delete_admin',{'level':level.id}) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -22,7 +22,7 @@ class City {
     private $city;
     
     public function __construct() {
-        Parent::__construct();
+        
     }
 
     /**

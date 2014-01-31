@@ -1,7 +1,6 @@
-{% extends "::admin.html.twig" %}
+{% extends "UserBundle:User:showUsers.html.twig" %}
 {% block title %}Portfolio : Administration : Formatoion{% endblock %}
 {% block header %}<h1>Protfolio : Administarion (admin : {{username}} ) : Formatoion</h1>{% endblock %}
 {% block body %}
-{% include 'PortfolioBundle:Admin:showUsers.html.twig' with {'actionForm': 'portfolio_formation_admin','controller':'portfolio_formation_show_admin','users':users} %}
-
+    {{ parent() }}
 {% endblock %}

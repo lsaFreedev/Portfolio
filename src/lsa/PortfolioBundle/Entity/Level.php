@@ -27,7 +27,7 @@ class Level {
     private $active;
     
     public function __construct(){
-        Parent::__construct();
+        
     }
 
     /**

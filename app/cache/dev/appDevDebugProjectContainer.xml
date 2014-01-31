@@ -431,7 +431,7 @@
     <parameter key="assetic.read_from">C:/wamp/www/portfolio/app/../web</parameter>
     <parameter key="assetic.write_to">C:/wamp/www/portfolio/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
-    <parameter key="assetic.java.bin">C:\Windows\system32\java.EXE</parameter>
+    <parameter key="assetic.java.bin">C:\WINDOWS\system32\java.EXE</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
@@ -528,7 +528,7 @@
       <parameter key="webmaster@example.com">webmaster</parameter>
     </parameter>
     <parameter key="fos_user.registration.confirmation.enabled">false</parameter>
-    <parameter key="fos_user.registration.form.type">fos_user_registration</parameter>
+    <parameter key="fos_user.registration.form.type">lsa_userbundle_user</parameter>
     <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
     <parameter key="fos_user.registration.form.validation_groups" type="collection">
       <parameter>Registration</parameter>
@@ -2297,6 +2297,7 @@
               <argument key="fos_user_registration">fos_user.registration.form.type</argument>
               <argument key="fos_user_change_password">fos_user.change_password.form.type</argument>
               <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
+              <argument key="lsa_userbundle_user">lsa_user.registration.form.type</argument>
             </argument>
             <argument type="collection">
               <argument key="form" type="collection">
@@ -2836,7 +2837,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>52e5667e20800</argument>
+            <argument>52eb8d64c374a</argument>
           </service>
         </argument>
       </argument>
@@ -3134,7 +3135,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>52e5667e20800</argument>
+            <argument>52eb8d64c374a</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3750,7 +3751,7 @@
     <service id="fos_user.registration.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
       <argument>fos_user_registration_form</argument>
-      <argument>fos_user_registration</argument>
+      <argument>lsa_userbundle_user</argument>
       <argument type="collection">
         <argument>Registration</argument>
         <argument>Default</argument>
@@ -3790,6 +3791,10 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="router"/>
       <argument>86400</argument>
+    </service>
+    <service id="lsa_user.registration.form.type" class="lsa\UserBundle\Form\UserType">
+      <tag name="form.type" alias="lsa_userbundle_user"/>
+      <argument>lsa\UserBundle\Entity\User</argument>
     </service>
     <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
       <tag name="twig.extension"/>

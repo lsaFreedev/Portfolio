@@ -1,0 +1,31 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : City{% endblock %}
+{% block header %}<h1>Protfolio : administration : City</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_city_add_admin') }}" class="btn btn-success">New</a> 
+</div>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td>ID</td>
+        <td>City</td>               
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for city in cities %}
+    <tr>
+        <td><a href="{{ path('portfolio_city_edit_admin',{'city':city.id}) }}">{{ city.id }}</a></td>
+        <td><a href="{{ path('portfolio_city_edit_admin',{'city':city.id}) }}">{{ city.city }}</a></td>                
+        <td><a href="{{ path('portfolio_city_edit_admin',{'city':city.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_city_delete_admin',{'city':city.id}) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

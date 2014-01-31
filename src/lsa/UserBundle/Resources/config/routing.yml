@@ -16,8 +16,25 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+    
+#rout user
+portfolio_user_admin:
+    pattern: /admin/user
+    defaults: {_controller: UserBundle:User:index } 
 
-user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: UserBundle:Default:index }
+portfolio_user_add_admin:
+    pattern: /admin/user/add
+    defaults: {_controller: UserBundle:User:add }
+        
+portfolio_user_edit_admin:
+    pattern: /admin/user/edit/{user}
+    defaults: {_controller: UserBundle:User:edit }
+    requirements:
+        level: \d+
+
+portfolio_user_delete_admin:
+    pattern: /admin/user/delete/{user}
+    defaults: {_controller: UserBundle:User:delete }
+    requirements:
+        level: \d+ 
     
