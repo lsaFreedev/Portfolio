@@ -1,0 +1,43 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : Project{% endblock %}
+{% block header %}<h1>Protfolio : administration : Project</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_project_add_admin') }}" class="btn btn-success">New</a> 
+</div>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td>ID</td>
+        <td>Title</td>               
+        <td>Url</td>  
+        <td>Description</td>  
+        <td>Active</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for project in projects %}
+    <tr>
+        <td><a href="{{ path('portfolio_project_edit_admin',{'project':project.id}) }}">{{ project.id }}</a></td>
+        <td><a href="{{ path('portfolio_project_edit_admin',{'project':project.id}) }}">{{ project.title }}</a></td>
+        <td><a href="{{ path('portfolio_project_edit_admin',{'project':project.id}) }}">{{ project.url }}</a></td>
+        <td><a href="{{ path('portfolio_project_edit_admin',{'project':project.id}) }}">{{ project.description }}</a></td>
+        <td>
+            {% if project.active == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_project_edit_admin',{'project':project.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_project_delete_admin',{'project':project.id}) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

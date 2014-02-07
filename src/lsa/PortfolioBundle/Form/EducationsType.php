@@ -24,7 +24,9 @@ class EducationsType extends AbstractType
                     'widget' => 'single_text',
                     'format' => 'dd-MM-yyyy',))
             ->add('active','checkbox', array('required' => false))
-            ->add('user')
+            ->add('user','entity',array(
+                                        'class' => 'UserBundle:User',
+                                        'property' => 'email'))
         ;
     }
     

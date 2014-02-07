@@ -24,10 +24,10 @@ class About {
     /**
     * @ORM\Column(name="active",type="boolean",options={"default":0})
     */
-    private $avtive;
+    private $active;
     
     public function __construct() {
-        Parent::__construct();
+        
     }    
 
     /**
@@ -64,25 +64,25 @@ class About {
     }
 
     /**
-     * Set avtive
+     * Set active
      *
-     * @param boolean $avtive
+     * @param boolean $active
      * @return About
      */
-    public function setAvtive($avtive)
+    public function setActive($active)
     {
-        $this->avtive = $avtive;
+        $this->active = $active;
 
         return $this;
     }
 
     /**
-     * Get avtive
+     * Get active
      *
      * @return boolean 
      */
-    public function getAvtive()
+    public function getActive()
     {
-        return $this->avtive;
+        return $this->active;
     }
 }

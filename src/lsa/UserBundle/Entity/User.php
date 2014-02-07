@@ -1,18 +1,19 @@
 <?php
+
 namespace lsa\UserBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Response;
 
 use lsa\PortfolioBundle\Entity\Activities;
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="lsa\UserBundle\Entity\UserRepository")
  */
-class User extends BaseUser
-{
+class User implements AdvancedUserInterface, \Serializable {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -21,99 +22,128 @@ class User extends BaseUser
     protected $id;
     
     /**
+    * @ORM\Column(type="string", length=255, unique=true)
+    */
+    private $email;
+    
+    /**
      * @ORM\Column(name="firstname",type="string",length=50)
-     * 
+     *
      */
     private $firstname;
-    
+
     /**
      * @ORM\Column(name="lastname",type="string",length=50)
      */
     private $lastname;
-    
+
     /**
      * @ORM\Column(name="birthday",type="date")
      */
     private $birthday;
-    
+
     /**
      * @ORM\Column(name="address",type="text")
      */
     private $address;
-    
+
     /**
      * Association of class
      */
-    
     /**
      * @ORM\ManyToOne(targetEntity="lsa\PortfolioBundle\Entity\City")
      * @ORM\JoinColumn(nullable=false)
-     */    
-    private $city;  
-    
+     */
+    private $city;
+
     /**
      * @ORM\OneToOne(targetEntity="lsa\PortfolioBundle\Entity\About",cascade={"remove"})
-     * @ORM\JoinColumn(nullable=true)     
+     * @ORM\JoinColumn(nullable=true)
      */
     private $about;
-    
+
     /**
      * @ORM\OneToOne(targetEntity="lsa\PortfolioBundle\entity\Cv",cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $cv;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="lsa\PortfolioBundle\Entity\Level")
      * @ORM\JoinColumn(nullable=false)
      */
     private $level;
-    
+
     /**
-     * @ORM\OneToOne(targetEntity="lsa\portfoliobundle\Entity\Images",cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="lsa\portfoliobundle\Entity\Images",cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
-    private $image;    
-    
+    private $image;
+
     /**
      * Association of class : bidirectionnelle
      */
-    
     /**
      * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Activities",mappedBy="user")
      */
     private $activities;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Educations",mappedBy="user")
      */
     private $educations;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Experiences",mappedBy="user")
      */
     private $experiences;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Projects",mappedBy="user")
      */
     private $projects;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="lsa\PortfolioBundle\Entity\Skills",mappedBy="user")
      */
     private $skills;
     
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $password;  
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string salt
+     */
+    protected $salt;
+    
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+  
+    /**
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users")
+     *     
+     * @var ArrayCollection $userRoles
+     */
+    protected $userRoles; 
+    
     public function __construct()
     {
-        parent::__construct();
+        $this->createdAt = new \DateTime();
+        $this->userRoles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->updatedAt = new \DateTime();
         $this->activities = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -136,7 +166,7 @@ class User extends BaseUser
     /**
      * Get firstname
      *
-     * @return string 
+     * @return string
      */
     public function getFirstname()
     {
@@ -159,7 +189,7 @@ class User extends BaseUser
     /**
      * Get lastname
      *
-     * @return string 
+     * @return string
      */
     public function getLastname()
     {
@@ -182,7 +212,7 @@ class User extends BaseUser
     /**
      * Get birthday
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBirthday()
     {
@@ -205,7 +235,7 @@ class User extends BaseUser
     /**
      * Get address
      *
-     * @return string 
+     * @return string
      */
     public function getAddress()
     {
@@ -228,7 +258,7 @@ class User extends BaseUser
     /**
      * Get city
      *
-     * @return \lsa\PortfolioBundle\Entity\City 
+     * @return \lsa\PortfolioBundle\Entity\City
      */
     public function getCity()
     {
@@ -251,7 +281,7 @@ class User extends BaseUser
     /**
      * Get about
      *
-     * @return \lsa\PortfolioBundle\Entity\About 
+     * @return \lsa\PortfolioBundle\Entity\About
      */
     public function getAbout()
     {
@@ -274,7 +304,7 @@ class User extends BaseUser
     /**
      * Get cv
      *
-     * @return \lsa\PortfolioBundle\entity\Cv 
+     * @return \lsa\PortfolioBundle\entity\Cv
      */
     public function getCv()
     {
@@ -297,7 +327,7 @@ class User extends BaseUser
     /**
      * Get level
      *
-     * @return \lsa\PortfolioBundle\Entity\Level 
+     * @return \lsa\PortfolioBundle\Entity\Level
      */
     public function getLevel()
     {
@@ -320,7 +350,7 @@ class User extends BaseUser
     /**
      * Get image
      *
-     * @return \lsa\portfoliobundle\Entity\Images 
+     * @return \lsa\portfoliobundle\Entity\Images
      */
     public function getImage()
     {
@@ -347,13 +377,13 @@ class User extends BaseUser
      */
     public function removeActivity(Activities $activities)
     {
-        $this->activities->removeElement($activities);        
+        $this->activities->removeElement($activities);
     }
 
     /**
      * Get activities
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getActivities()
     {
@@ -386,7 +416,7 @@ class User extends BaseUser
     /**
      * Get educations
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEducations()
     {
@@ -419,7 +449,7 @@ class User extends BaseUser
     /**
      * Get experiences
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getExperiences()
     {
@@ -452,7 +482,7 @@ class User extends BaseUser
     /**
      * Get projects
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getProjects()
     {
@@ -485,10 +515,212 @@ class User extends BaseUser
     /**
      * Get skills
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSkills()
     {
         return $this->skills;
+    }
+    
+    /**
+     * Gets an array of roles.
+     *
+     * @return array An array of Role objects
+     */
+    public function getRoles()
+    {
+        return $this->getUserRoles()->toArray();
+    }
+     
+    /**
+     * Gets the user roles.
+     *
+     * @return ArrayCollection A Doctrine ArrayCollection
+     */
+    public function getUserRoles()
+    {
+        return $this->userRoles;
+    }
+ 
+    /*public function SetUserRoles(\lsa\UserBundle\Entity\Role $userRoles)
+    {       
+        $this->userRoles[] = $userRoles;
+
+        return $this;    
+    } */
+    
+    /**
+     * Gets the user password.
+     *
+     * @return string The password.
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+  
+    /**
+     * Sets the user password.
+     *
+     * @param string $value The password.
+     */
+    public function setPassword($value)
+    {
+        $this->password = $value;
+    }
+  
+    /**
+     * Gets the user salt.
+     *
+     * @return string The salt.
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+  
+    /**
+     * Sets the user salt.
+     *
+     * @param string $value The salt.
+     */
+    public function setSalt($value)
+    {
+        $this->salt = $value;
+    }
+    
+    /**
+     * Gets the username.
+     *
+     * @return string The username.
+     */
+    public function getUsername()
+    {
+        return $this->email;
+    }
+  
+    /**
+     * Sets the username.
+     *
+     * @param string $value The username.
+     */
+    public function setUsername($value)
+    {
+        $this->email = $value;
+    }   
+     
+    /**
+     * Erases the user credentials.
+     */
+    public function eraseCredentials()
+    {
+  
+    }
+ 
+    /**
+     * Renvoie l'objet au format serialisé
+     * @return string
+     */
+    public function serialize() {
+        return \json_encode(array($this->id, $this->email, $this->password, $this->salt, $this->userRoles));
+    }
+ 
+    /**
+     * Renseigne les valeurs de l'objet à partir d'une chaine serialisée
+     * @param type $serialized
+     */
+    public function unserialize($serialized) {
+        list($this->id, $this->email, $this->password, $this->salt, $this->userRoles) = \json_decode($serialized);
+    }   
+    
+    /**
+     * Add userRoles
+     *
+     * @param \lsa\UserBundle\Entity\Role $userRoles
+     * @return User
+     */
+    public function addUserRole(\lsa\UserBundle\Entity\Role $userRoles)
+    {
+        $this->userRoles[] = $userRoles;
+
+        return $this;
+    }
+
+    /**
+     * Remove userRoles
+     *
+     * @param \lsa\UserBundle\Entity\Role $userRoles
+     */
+    public function removeUserRole(\lsa\UserBundle\Entity\Role $userRoles)
+    {
+        $this->userRoles->removeElement($userRoles);
+    }
+        
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
+    }
+    
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return User
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean 
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

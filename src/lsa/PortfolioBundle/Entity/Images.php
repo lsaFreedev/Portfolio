@@ -3,6 +3,7 @@ namespace lsa\PortfolioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @ORM\Table(name="images")
@@ -26,7 +27,7 @@ class Images {
     /**
      * @Assert\File(maxSize="6000000")
      */
-    private $file;
+    private $file = null;
     
     /**
     * @ORM\Column(name="active",type="boolean",options={"default":0})
@@ -131,10 +132,10 @@ class Images {
     
     /**
      * @ORM\PrePersist()
-     * @ORM\PreUpdate()
+     * @ORM\PreUpdate()     
      */
     public function preUpload()
-    {
+    { 
         if (null !== $this->file) {
             // faites ce que vous voulez pour générer un nom unique
             //$this->image = sha1(uniqid(mt_rand(), true)).'.'.$this->file->guessExtension();
@@ -170,7 +171,7 @@ class Images {
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            @unlink($file);
         }
     }
     

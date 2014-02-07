@@ -1,0 +1,103 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : experiences{% endblock %}
+{% block header %}<h1>Protfolio : administration : Experiences : Add</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+<form action="" method="post" {{ form_enctype(form) }} class="form-horizontal" >
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+    <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.job, "Job",{ 'label_attr': {'class': 'control-label'} } ) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.job) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.job, {'attr':{'class':'job'} } ) }}
+        </div>
+    </div>
+     <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.employer, "employer",{ 'label_attr': {'class': 'control-label'} }) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.employer) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.employer) }}
+        </diV>
+    </div>
+     <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.description, "description",{ 'label_attr': {'class': 'control-label'} }) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.description) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.description) }}
+        </div>
+    </div>
+    <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.iscurrent, "iscurrent",{ 'label_attr': {'class': 'control-label'} }) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.iscurrent) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.iscurrent) }}
+        </div>
+    </div>
+    <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.startdate, "startdate",{ 'label_attr': {'class': 'control-label'} }) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.startdate) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.startdate) }}
+        </div>
+    </div>
+    <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.enddate, "enddate",{ 'label_attr': {'class': 'control-label'} }) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.enddate) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.enddate) }}
+        </div>
+    </div>
+    <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.active, "active",{ 'label_attr': {'class': 'control-label'} }) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.active) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.active) }}
+        </div>
+    </div>
+    <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.user, "user",{ 'label_attr': {'class': 'control-label'} }) }}
+         <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.user) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.user) }}
+         </div>
+    </div>
+    <div class="control-group">
+         <div class="controls">                    
+            <a href="{{ path('portfolio_experience_admin') }}" class="btn btn-primary" style="margin-right: 126px;" >Back</a>
+            {{ form_rest(form) }}    
+            {# {{ form(form) }} #}   
+            <input type="submit" name="add" value="Add" id="add" class="btn btn-warning" >
+         </div>         
+    </div>
+</form>
+{% endblock %}

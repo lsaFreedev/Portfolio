@@ -1,0 +1,39 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : About{% endblock %}
+{% block header %}<h1>Protfolio : administration : About</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_about_add_admin') }}" class="btn btn-success">New</a> 
+</div>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td>ID</td>
+        <td>Description</td>               
+        <td>Active</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for about in abouts %}
+    <tr>
+        <td><a href="{{ path('portfolio_about_edit_admin',{'about':about.id}) }}">{{ about.id }}</a></td>
+        <td><a href="{{ path('portfolio_about_edit_admin',{'about':about.id}) }}">{{ about.description }}</a></td>
+        <td>
+            {% if about.active == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_about_edit_admin',{'about':about.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_about_delete_admin',{'about':about.id}) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

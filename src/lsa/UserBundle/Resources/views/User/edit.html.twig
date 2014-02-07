@@ -1,0 +1,153 @@
+{% extends "::admin.html.twig" %}
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    <form action="" method="post" {{ form_enctype(form) }} class="form-horizontal" >
+        {# {{ form_widget(form) }} #}
+        
+        {{ form_errors(form) }}
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.email, "Email",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.email) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.email, {'attr':{'class':'email'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.firstname, "Firstname",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.firstname) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.firstname, {'attr':{'class':'firstname'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.lastname, "Lastname",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.lastname) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.lastname, {'attr':{'class':'lastname'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.birthday, "Birthday",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.birthday) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.birthday, {'attr':{'class':'birthday'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.address, "Address",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.address) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.address, {'attr':{'class':'address'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.password, "Password",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.password) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.password, {'attr':{'class':'password'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.userRoles, "User Roles",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.userRoles) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.userRoles, {'attr':{'class':'userRoles'} } ) }}
+            </div>
+        </div>               
+        
+         <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.isActive, "Is active",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.isActive) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.isActive, {'attr':{'class':'isactive'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.city, "City",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.city) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.city, {'attr':{'class':'city'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.level, "Level",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.level) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.level, {'attr':{'class':'level'} } ) }}
+            </div>
+        </div>
+        
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.image.file, "Image",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.image.file) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.image.file, {'attr':{'class':'file'} } ) }}
+                <img src="{{ asset('uploads/images/'~image) }}" alt=""  class="img-rounded" width="200" height="200" >
+            </div>
+        </div>
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.image.active, "Active",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.image.active) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.image.active, {'attr':{'class':'active'} } ) }}
+                
+                
+            </div>
+        </div>        
+         <div class="control-group">
+            {{ form_rest(form) }}  
+            <div class="controls">
+                <input type="submit" name="edit" value="Edit" id="edit" class="btn btn-warning" >
+            </div>
+        </div>
+       
+    </form>    
+{% endblock %}

@@ -16,6 +16,7 @@ class ImagesType extends AbstractType
     {
         $builder
             ->add('file')
+            //->add('image','text')    
             ->add('active','checkbox', array('required' => false))
         ;
     }

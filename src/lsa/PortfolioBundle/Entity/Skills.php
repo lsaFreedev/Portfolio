@@ -42,7 +42,7 @@ class Skills {
     private $user;
     
     public function __construct() {
-        Parent::__construct();
+        
     }
 
     /**

@@ -30,12 +30,286 @@ class __TwigTemplate_17bb5797da446f96a73a754931ecddaa504b5864f5b9bd870e62f59529a
         // line 3
         echo "    <form action=\"\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
-        echo " >
+        echo " class=\"form-horizontal\" >
         ";
-        // line 4
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
+        // line 5
+        echo "        
+        ";
+        // line 6
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
-        <input type=\"submit\" name=\"add\" value=\"Add\" id=\"add\">
+        <div class=\"control-group\">
+            ";
+        // line 9
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Email"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 11
+        echo "       
+                ";
+        // line 12
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email"), 'errors');
+        echo "
+                ";
+        // line 14
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email"), 'widget', array("attr" => array("class" => "email")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 20
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "firstname"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Firstname"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 22
+        echo "       
+                ";
+        // line 23
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "firstname"), 'errors');
+        echo "
+                ";
+        // line 25
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "firstname"), 'widget', array("attr" => array("class" => "firstname")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 31
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lastname"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Lastname"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 33
+        echo "       
+                ";
+        // line 34
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lastname"), 'errors');
+        echo "
+                ";
+        // line 36
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lastname"), 'widget', array("attr" => array("class" => "lastname")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 42
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "birthday"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Birthday"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 44
+        echo "       
+                ";
+        // line 45
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "birthday"), 'errors');
+        echo "
+                ";
+        // line 47
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "birthday"), 'widget', array("attr" => array("class" => "birthday")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 53
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "address"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Address"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 55
+        echo "       
+                ";
+        // line 56
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "address"), 'errors');
+        echo "
+                ";
+        // line 58
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "address"), 'widget', array("attr" => array("class" => "address")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 64
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "password"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Password"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 66
+        echo "       
+                ";
+        // line 67
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "password"), 'errors');
+        echo "
+                ";
+        // line 69
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "password"), 'widget', array("attr" => array("class" => "password")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 75
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "userRoles"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "User Roles"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 77
+        echo "       
+                ";
+        // line 78
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "userRoles"), 'errors');
+        echo "
+                ";
+        // line 80
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "userRoles"), 'widget', array("attr" => array("class" => "userRoles")));
+        echo "
+            </div>
+        </div>               
+        
+         <div class=\"control-group\">
+            ";
+        // line 86
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "isActive"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Is active"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 88
+        echo "       
+                ";
+        // line 89
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "isActive"), 'errors');
+        echo "
+                ";
+        // line 91
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "isActive"), 'widget', array("attr" => array("class" => "isactive")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 97
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "city"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "City"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 99
+        echo "       
+                ";
+        // line 100
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "city"), 'errors');
+        echo "
+                ";
+        // line 102
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "city"), 'widget', array("attr" => array("class" => "city")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 108
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "level"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Level"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 110
+        echo "       
+                ";
+        // line 111
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "level"), 'errors');
+        echo "
+                ";
+        // line 113
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "level"), 'widget', array("attr" => array("class" => "level")));
+        echo "
+            </div>
+        </div>
+        
+        <div class=\"control-group\">
+            ";
+        // line 119
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "image"), "file"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Image"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 121
+        echo "       
+                ";
+        // line 122
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "image"), "file"), 'errors');
+        echo "
+                ";
+        // line 124
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "image"), "file"), 'widget', array("attr" => array("class" => "file")));
+        echo "
+            </div>
+        </div>
+        <div class=\"control-group\">
+            ";
+        // line 129
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "image"), "active"), 'label', array("label_attr" => array("class" => "control-label"), "label" => "Active"));
+        echo "
+            <div class=\"controls\">
+                ";
+        // line 131
+        echo "       
+                ";
+        // line 132
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "image"), "active"), 'errors');
+        echo "
+                ";
+        // line 134
+        echo "                ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "image"), "active"), 'widget', array("attr" => array("class" => "active")));
+        echo "
+            </div>
+        </div>
+         <div class=\"control-group\">
+            ";
+        // line 138
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
+        echo "  
+            <div class=\"controls\">
+                <input type=\"submit\" name=\"add\" value=\"Add\" id=\"add\">
+            </div>
+        </div>
+       
     </form>    
 ";
     }
@@ -52,6 +326,6 @@ class __TwigTemplate_17bb5797da446f96a73a754931ecddaa504b5864f5b9bd870e62f59529a
 
     public function getDebugInfo()
     {
-        return array (  34 => 7,  23 => 4,  100 => 27,  81 => 24,  58 => 18,  20 => 1,  480 => 162,  474 => 161,  469 => 158,  461 => 155,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 112,  365 => 111,  362 => 110,  360 => 109,  355 => 106,  341 => 105,  337 => 103,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 95,  298 => 91,  294 => 90,  285 => 89,  283 => 88,  278 => 86,  268 => 85,  264 => 84,  258 => 81,  252 => 80,  247 => 78,  241 => 77,  229 => 73,  220 => 70,  214 => 69,  177 => 65,  169 => 60,  140 => 55,  132 => 51,  128 => 49,  107 => 36,  61 => 13,  273 => 96,  269 => 94,  254 => 92,  243 => 88,  240 => 86,  238 => 85,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  221 => 77,  219 => 76,  217 => 75,  208 => 68,  204 => 72,  179 => 69,  159 => 61,  143 => 56,  135 => 53,  119 => 42,  102 => 32,  71 => 19,  67 => 20,  63 => 15,  59 => 14,  38 => 8,  94 => 28,  89 => 20,  85 => 25,  75 => 17,  68 => 14,  56 => 9,  87 => 25,  21 => 2,  26 => 12,  93 => 29,  88 => 6,  78 => 21,  46 => 11,  27 => 5,  44 => 12,  31 => 3,  28 => 2,  201 => 92,  196 => 90,  183 => 82,  171 => 61,  166 => 71,  163 => 62,  158 => 67,  156 => 66,  151 => 63,  142 => 59,  138 => 54,  136 => 56,  121 => 46,  117 => 44,  105 => 40,  91 => 27,  62 => 19,  49 => 19,  24 => 7,  25 => 3,  19 => 1,  79 => 18,  72 => 22,  69 => 25,  47 => 9,  40 => 11,  37 => 10,  22 => 3,  246 => 90,  157 => 56,  145 => 46,  139 => 45,  131 => 52,  123 => 47,  120 => 40,  115 => 43,  111 => 37,  108 => 36,  101 => 32,  98 => 31,  96 => 31,  83 => 25,  74 => 14,  66 => 15,  55 => 14,  52 => 21,  50 => 10,  43 => 12,  41 => 9,  35 => 8,  32 => 4,  29 => 6,  209 => 82,  203 => 78,  199 => 67,  193 => 73,  189 => 71,  187 => 84,  182 => 66,  176 => 64,  173 => 65,  168 => 72,  164 => 59,  162 => 57,  154 => 58,  149 => 51,  147 => 58,  144 => 49,  141 => 48,  133 => 55,  130 => 41,  125 => 44,  122 => 43,  116 => 41,  112 => 42,  109 => 34,  106 => 36,  103 => 28,  99 => 31,  95 => 28,  92 => 21,  86 => 28,  82 => 22,  80 => 19,  73 => 19,  64 => 17,  60 => 16,  57 => 11,  54 => 16,  51 => 13,  48 => 12,  45 => 17,  42 => 10,  39 => 9,  36 => 4,  33 => 7,  30 => 2,);
+        return array (  306 => 138,  298 => 134,  294 => 132,  291 => 131,  285 => 129,  277 => 124,  273 => 122,  270 => 121,  264 => 119,  255 => 113,  251 => 111,  248 => 110,  242 => 108,  233 => 102,  229 => 100,  226 => 99,  220 => 97,  211 => 91,  207 => 89,  204 => 88,  198 => 86,  189 => 80,  185 => 78,  182 => 77,  176 => 75,  167 => 69,  163 => 67,  160 => 66,  154 => 64,  145 => 58,  141 => 56,  138 => 55,  132 => 53,  123 => 47,  119 => 45,  116 => 44,  110 => 42,  101 => 36,  97 => 34,  94 => 33,  88 => 31,  79 => 25,  75 => 23,  72 => 22,  66 => 20,  57 => 14,  53 => 12,  50 => 11,  44 => 9,  39 => 6,  36 => 5,  31 => 3,  28 => 2,);
     }
 }

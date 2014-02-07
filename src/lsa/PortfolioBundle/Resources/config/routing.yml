@@ -77,5 +77,119 @@ portfolio_level_delete_admin:
     defaults: {_controller: PortfolioBundle:Level:delete }
     requirements:
         level: \d+ 
+        
+        
+#rout Experiences
+portfolio_experience_admin:
+    pattern: /admin/experience
+    defaults: {_controller: PortfolioBundle:Experience:index }
+
+portfolio_experience_show_admin:
+    pattern: /admin/experience/show/{user}
+    defaults: {_controller: PortfolioBundle:Experience:show,user:1 }
+    requirements:
+        user: \d+
+
+portfolio_experience_add_admin:
+    pattern: /admin/experience/add
+    defaults: {_controller: PortfolioBundle:Experience:add }
+
+portfolio_experience_edit_admin:
+    pattern: /admin/experience/edit/{experience}
+    defaults: {_controller: PortfolioBundle:Experience:edit }
+    requirements:
+        experience: \d+
+
+portfolio_experience_delete_admin:
+    pattern: /admin/experience/delete/{experience}
+    defaults: {_controller: PortfolioBundle:Experience:delete }
+    requirements:
+        experience: \d+
+
+#rout Skill
+portfolio_skill_admin:
+    pattern: /admin/skill
+    defaults: {_controller: PortfolioBundle:Skill:index }   
+
+portfolio_skill_add_admin:
+    pattern: /admin/skill/add
+    defaults: {_controller: PortfolioBundle:Skill:add }
+        
+portfolio_skill_edit_admin:
+    pattern: /admin/skill/edit/{skill}
+    defaults: {_controller: PortfolioBundle:Skill:edit }
+    requirements:
+        skill: \d+
+
+portfolio_skill_delete_admin:
+    pattern: /admin/skill/delete/{skill}
+    defaults: {_controller: PortfolioBundle:Skill:delete }
+    requirements:
+        skill: \d+ 
+        
+        
+#rout Projetcs
+portfolio_project_admin:
+    pattern: /admin/project
+    defaults: {_controller: PortfolioBundle:Project:index }   
+
+portfolio_project_add_admin:
+    pattern: /admin/project/add
+    defaults: {_controller: PortfolioBundle:Project:add }
+        
+portfolio_project_edit_admin:
+    pattern: /admin/project/edit/{project}
+    defaults: {_controller: PortfolioBundle:Project:edit }
+    requirements:
+        project: \d+
+
+portfolio_project_delete_admin:
+    pattern: /admin/project/delete/{project}
+    defaults: {_controller: PortfolioBundle:Project:delete }
+    requirements:
+        project: \d+ 
+
+#rout Activities
+portfolio_activity_admin:
+    pattern: /admin/activity
+    defaults: {_controller: PortfolioBundle:Activity:index }   
+
+portfolio_activity_add_admin:
+    pattern: /admin/activity/add
+    defaults: {_controller: PortfolioBundle:Activity:add }
+        
+portfolio_activity_edit_admin:
+    pattern: /admin/activity/edit/{activity}
+    defaults: {_controller: PortfolioBundle:Activity:edit }
+    requirements:
+        activity: \d+
+
+portfolio_activity_delete_admin:
+    pattern: /admin/activity/delete/{activity}
+    defaults: {_controller: PortfolioBundle:Activity:delete }
+    requirements:
+        activity: \d+ 
+ 
+ #rout Abouts
+portfolio_about_admin:
+    pattern: /admin/about
+    defaults: {_controller: PortfolioBundle:About:index }   
+
+portfolio_about_add_admin:
+    pattern: /admin/about/add
+    defaults: {_controller: PortfolioBundle:About:add }
+        
+portfolio_about_edit_admin:
+    pattern: /admin/about/edit/{about}
+    defaults: {_controller: PortfolioBundle:About:edit }
+    requirements:
+        about: \d+
+
+portfolio_about_delete_admin:
+    pattern: /admin/about/delete/{about}
+    defaults: {_controller: PortfolioBundle:About:delete }
+    requirements:
+        about: \d+ 
+                               
 
  

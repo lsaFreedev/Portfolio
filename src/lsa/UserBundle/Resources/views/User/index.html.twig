@@ -1,7 +1,12 @@
 {% extends "UserBundle:User:showUsersAdmin.html.twig" %}
 {% block title %}Portfolio : Administration : Utilisateurs{% endblock %}
 {% block header %}<h1>Protfolio : Administarion : Utilisateurs</h1>{% endblock %}
-{% block newUser %}        
+{% block newUser %}  
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
     <div style="margin-bottom: 10px;">
         <a href="{{ path('portfolio_user_add_admin') }}" class="btn btn-success">New</a> 
     </div>

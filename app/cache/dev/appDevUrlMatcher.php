@@ -224,169 +224,151 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/admin/experience')) {
+                // portfolio_experience_admin
+                if ($pathinfo === '/admin/experience') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ExperienceController::indexAction',  '_route' => 'portfolio_experience_admin',);
+                }
+
+                // portfolio_experience_show_admin
+                if (0 === strpos($pathinfo, '/admin/experience/show') && preg_match('#^/admin/experience/show(?:/(?P<user>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_experience_show_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ExperienceController::showAction',  'user' => 1,));
+                }
+
+                // portfolio_experience_add_admin
+                if ($pathinfo === '/admin/experience/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ExperienceController::addAction',  '_route' => 'portfolio_experience_add_admin',);
+                }
+
+                // portfolio_experience_edit_admin
+                if (0 === strpos($pathinfo, '/admin/experience/edit') && preg_match('#^/admin/experience/edit/(?P<experience>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_experience_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ExperienceController::editAction',));
+                }
+
+                // portfolio_experience_delete_admin
+                if (0 === strpos($pathinfo, '/admin/experience/delete') && preg_match('#^/admin/experience/delete/(?P<experience>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_experience_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ExperienceController::deleteAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/skill')) {
+                // portfolio_skill_admin
+                if ($pathinfo === '/admin/skill') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\SkillController::indexAction',  '_route' => 'portfolio_skill_admin',);
+                }
+
+                // portfolio_skill_add_admin
+                if ($pathinfo === '/admin/skill/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\SkillController::addAction',  '_route' => 'portfolio_skill_add_admin',);
+                }
+
+                // portfolio_skill_edit_admin
+                if (0 === strpos($pathinfo, '/admin/skill/edit') && preg_match('#^/admin/skill/edit/(?P<skill>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_skill_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\SkillController::editAction',));
+                }
+
+                // portfolio_skill_delete_admin
+                if (0 === strpos($pathinfo, '/admin/skill/delete') && preg_match('#^/admin/skill/delete/(?P<skill>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_skill_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\SkillController::deleteAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/project')) {
+                // portfolio_project_admin
+                if ($pathinfo === '/admin/project') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ProjectController::indexAction',  '_route' => 'portfolio_project_admin',);
+                }
+
+                // portfolio_project_add_admin
+                if ($pathinfo === '/admin/project/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ProjectController::addAction',  '_route' => 'portfolio_project_add_admin',);
+                }
+
+                // portfolio_project_edit_admin
+                if (0 === strpos($pathinfo, '/admin/project/edit') && preg_match('#^/admin/project/edit/(?P<project>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_project_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ProjectController::editAction',));
+                }
+
+                // portfolio_project_delete_admin
+                if (0 === strpos($pathinfo, '/admin/project/delete') && preg_match('#^/admin/project/delete/(?P<project>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_project_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ProjectController::deleteAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/a')) {
+                if (0 === strpos($pathinfo, '/admin/activity')) {
+                    // portfolio_activity_admin
+                    if ($pathinfo === '/admin/activity') {
+                        return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ActivityController::indexAction',  '_route' => 'portfolio_activity_admin',);
+                    }
+
+                    // portfolio_activity_add_admin
+                    if ($pathinfo === '/admin/activity/add') {
+                        return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ActivityController::addAction',  '_route' => 'portfolio_activity_add_admin',);
+                    }
+
+                    // portfolio_activity_edit_admin
+                    if (0 === strpos($pathinfo, '/admin/activity/edit') && preg_match('#^/admin/activity/edit/(?P<activity>\\d+)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_activity_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ActivityController::editAction',));
+                    }
+
+                    // portfolio_activity_delete_admin
+                    if (0 === strpos($pathinfo, '/admin/activity/delete') && preg_match('#^/admin/activity/delete/(?P<activity>\\d+)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_activity_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ActivityController::deleteAction',));
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/admin/about')) {
+                    // portfolio_about_admin
+                    if ($pathinfo === '/admin/about') {
+                        return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\AboutController::indexAction',  '_route' => 'portfolio_about_admin',);
+                    }
+
+                    // portfolio_about_add_admin
+                    if ($pathinfo === '/admin/about/add') {
+                        return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\AboutController::addAction',  '_route' => 'portfolio_about_add_admin',);
+                    }
+
+                    // portfolio_about_edit_admin
+                    if (0 === strpos($pathinfo, '/admin/about/edit') && preg_match('#^/admin/about/edit/(?P<about>\\d+)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_about_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\AboutController::editAction',));
+                    }
+
+                    // portfolio_about_delete_admin
+                    if (0 === strpos($pathinfo, '/admin/about/delete') && preg_match('#^/admin/about/delete/(?P<about>\\d+)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_about_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\AboutController::deleteAction',));
+                    }
+
+                }
+
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
-                // fos_user_security_login
+                // login
                 if ($pathinfo === '/login') {
-                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
+                    return array (  '_controller' => 'lsa\\UserBundle\\Controller\\UserController::loginAction',  '_route' => 'login',);
                 }
 
-                // fos_user_security_check
+                // login_check
                 if ($pathinfo === '/login_check') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_fos_user_security_check;
-                    }
-
-                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
+                    return array('_route' => 'login_check');
                 }
-                not_fos_user_security_check:
 
             }
 
-            // fos_user_security_logout
+            // logout
             if ($pathinfo === '/logout') {
-                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'fos_user_security_logout',);
+                return array('_route' => 'logout');
             }
 
         }
-
-        if (0 === strpos($pathinfo, '/profile')) {
-            // fos_user_profile_show
-            if (rtrim($pathinfo, '/') === '/profile') {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_fos_user_profile_show;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'fos_user_profile_show');
-                }
-
-                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::showAction',  '_route' => 'fos_user_profile_show',);
-            }
-            not_fos_user_profile_show:
-
-            // fos_user_profile_edit
-            if ($pathinfo === '/profile/edit') {
-                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::editAction',  '_route' => 'fos_user_profile_edit',);
-            }
-
-        }
-
-        if (0 === strpos($pathinfo, '/re')) {
-            if (0 === strpos($pathinfo, '/register')) {
-                // fos_user_registration_register
-                if (rtrim($pathinfo, '/') === '/register') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'fos_user_registration_register');
-                    }
-
-                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\RegistrationController::registerAction',  '_route' => 'fos_user_registration_register',);
-                }
-
-                if (0 === strpos($pathinfo, '/register/c')) {
-                    // fos_user_registration_check_email
-                    if ($pathinfo === '/register/check-email') {
-                        if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                            $allow = array_merge($allow, array('GET', 'HEAD'));
-                            goto not_fos_user_registration_check_email;
-                        }
-
-                        return array (  '_controller' => 'FOS\\UserBundle\\Controller\\RegistrationController::checkEmailAction',  '_route' => 'fos_user_registration_check_email',);
-                    }
-                    not_fos_user_registration_check_email:
-
-                    if (0 === strpos($pathinfo, '/register/confirm')) {
-                        // fos_user_registration_confirm
-                        if (preg_match('#^/register/confirm/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                                $allow = array_merge($allow, array('GET', 'HEAD'));
-                                goto not_fos_user_registration_confirm;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_user_registration_confirm')), array (  '_controller' => 'FOS\\UserBundle\\Controller\\RegistrationController::confirmAction',));
-                        }
-                        not_fos_user_registration_confirm:
-
-                        // fos_user_registration_confirmed
-                        if ($pathinfo === '/register/confirmed') {
-                            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                                $allow = array_merge($allow, array('GET', 'HEAD'));
-                                goto not_fos_user_registration_confirmed;
-                            }
-
-                            return array (  '_controller' => 'FOS\\UserBundle\\Controller\\RegistrationController::confirmedAction',  '_route' => 'fos_user_registration_confirmed',);
-                        }
-                        not_fos_user_registration_confirmed:
-
-                    }
-
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/resetting')) {
-                // fos_user_resetting_request
-                if ($pathinfo === '/resetting/request') {
-                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                        $allow = array_merge($allow, array('GET', 'HEAD'));
-                        goto not_fos_user_resetting_request;
-                    }
-
-                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::requestAction',  '_route' => 'fos_user_resetting_request',);
-                }
-                not_fos_user_resetting_request:
-
-                // fos_user_resetting_send_email
-                if ($pathinfo === '/resetting/send-email') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_fos_user_resetting_send_email;
-                    }
-
-                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::sendEmailAction',  '_route' => 'fos_user_resetting_send_email',);
-                }
-                not_fos_user_resetting_send_email:
-
-                // fos_user_resetting_check_email
-                if ($pathinfo === '/resetting/check-email') {
-                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                        $allow = array_merge($allow, array('GET', 'HEAD'));
-                        goto not_fos_user_resetting_check_email;
-                    }
-
-                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::checkEmailAction',  '_route' => 'fos_user_resetting_check_email',);
-                }
-                not_fos_user_resetting_check_email:
-
-                // fos_user_resetting_reset
-                if (0 === strpos($pathinfo, '/resetting/reset') && preg_match('#^/resetting/reset/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                        goto not_fos_user_resetting_reset;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_user_resetting_reset')), array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::resetAction',));
-                }
-                not_fos_user_resetting_reset:
-
-            }
-
-        }
-
-        // fos_user_change_password
-        if ($pathinfo === '/profile/change-password') {
-            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                goto not_fos_user_change_password;
-            }
-
-            return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'fos_user_change_password',);
-        }
-        not_fos_user_change_password:
 
         if (0 === strpos($pathinfo, '/admin/user')) {
             // portfolio_user_admin

@@ -1,31 +1,38 @@
 security:
     encoders:
-        lsa\UserBundle\Entity\User: sha512
+        lsa\UserBundle\Entity\User:
+            algorithm:   sha1
+            iterations: 1
+            encode_as_base64: false
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:        
-        main:
-            id: fos_user.user_provider.username_email
+          main:
+            entity: { class: lsa\UserBundle\Entity\User}
 
     firewalls:
-         main:
-            pattern:        ^/
-            anonymous:      true
-            provider:       main
+         secured_area:
+            pattern:    ^/
+            anonymous: ~
             form_login:
-                login_path: fos_user_security_login
-                check_path: fos_user_security_check
+                login_path:  /login
+                check_path:  /login_check
+                username_parameter: lsa_userbundle_userlogin[email]
+                password_parameter: lsa_userbundle_userlogin[password]
+                csrf_parameter: lsa_userbundle_userlogin[_token]
             logout:
-                path:       fos_user_security_logout
-                target:     /
+                path: /logout
+                target: /
+                
             remember_me:
-                key:        %secret% # %secret% est un paramètre de parameters.yml
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+                key:      "%secret%"
+                lifetime: 30 # en secondes
+                path:     /
+                domain:   ~ # Prend la valeur par défaut du domaine courant depuis $_SERVER
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

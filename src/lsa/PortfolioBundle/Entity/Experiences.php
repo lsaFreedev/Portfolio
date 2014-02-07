@@ -62,7 +62,7 @@ class Experiences {
     private $user;
     
     public function __construct(){
-        Parent::__construct();
+       
     }
     
     /**

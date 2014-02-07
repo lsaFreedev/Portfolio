@@ -1,0 +1,63 @@
+{% extends "UserBundle:User:showUsersAdmin.html.twig" %}
+{% block title %}Portfolio : Administration : S'identifier{% endblock %}
+{% block header %}<h1>Protfolio : Administarion : S'identifier</h1>{% endblock %}
+{% block body %}
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+    
+    <form action="{{ path('login_check') }}" method="post" {{ form_enctype(form) }} class="form-horizontal" >       
+        <!--<label for="username">Login :</label>
+        <input type="text" id="username" name="email" value="{{ last_username }}" />
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" />
+        <input type="checkbox" id="remember_me" name="_remember_me" checked />    
+        <label for="remember_me">Keep me logged in</label>-->
+        
+        
+        {{ form_errors(form) }}
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.email, "Email",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.email) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.email, {'attr':{'class':'email'} } ) }}
+            </div>
+        </div>
+                       
+        <div class="control-group">
+           {# Génération du label. #}
+           {{ form_label(form.password, "",{ 'label_attr': {'class': 'control-label'} } ) }}
+           <div class="controls">
+               {# Affichage des erreurs pour ce champ précis. #}       
+               {{ form_errors(form.password) }}
+               {# Génération de l'input. #}
+               {{ form_widget(form.password, {'attr':{'class':'password'} } ) }}
+           </div>
+        </div>
+        
+        <div class="control-group">
+          {# Génération du label. #}
+          {{ form_label(form.password, "Remember me",{ 'label_attr': {'class': 'control-label'} } ) }}
+          <div class="controls">
+              <input type="checkbox" id="remember_me" name="_remember_me" checked />   
+          </div>
+       </div>
+        
+        {#
+            Si vous voulez contrôler l'URL vers laquelle l'utilisateur est redirigé en cas de succès
+            (plus de détails ci-dessous)
+            <input type="hidden" name="_target_path" value="/account" />
+        #}
+        <div class="control-group">   
+           {{ form_rest(form) }}  
+           <div class="controls">
+                <input type="submit" name="login" value="Login" id="login" class="btn btn-warning" > 
+           </div>
+       </div>
+              
+    </form>
+{% endblock %}    

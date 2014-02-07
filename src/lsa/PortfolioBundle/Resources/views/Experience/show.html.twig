@@ -1,0 +1,55 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : experiences{% endblock %}
+{% block header %}<h1>Protfolio : administration : Experiences</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_experience_add_admin') }}" class="btn btn-success">New</a>
+</div>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td>ID</td>
+        <td>Job</td>
+        <td>Employer</td>
+        <td>Description</td>
+        <td>Is current</td>
+        <td>Startdate</td>
+        <td>Enddate</td>
+        <td>Active</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for experience in experinces %}
+    <tr>
+        <td><a href="{{ path('portfolio_experience_edit_admin',{'experience':experience.id}) }}">{{ experience.id }}</a></td>
+        <td><a href="{{ path('portfolio_experience_edit_admin',{'experience':experience.id}) }}">{{ experience.job }}</a></td>
+        <td><a href="{{ path('portfolio_experience_edit_admin',{'experience':experience.id}) }}">{{ experience.employer|slice(0, 20) }}..</a></td>
+        <td><a href="{{ path('portfolio_experience_edit_admin',{'experience':experience.id}) }}">{{ experience.description|slice(0, 20) }}..</a></td>
+        <td>
+            {% if experience.iscurrent == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_experience_edit_admin',{'experience':experience.id}) }}">{{ experience.startdate|date("d/m/Y") }}..</a></td>
+        <td><a href="{{ path('portfolio_experience_edit_admin',{'experience':experience.id}) }}">{{ experience.enddate|date("d/m/Y") }}..</a></td>        
+        <td>
+            {% if experience.active == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_experience_edit_admin',{'experience':experience.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_experience_delete_admin',{'experience':experience.id}) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

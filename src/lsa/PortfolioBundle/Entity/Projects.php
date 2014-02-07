@@ -47,7 +47,7 @@ class Projects {
     private $user;
     
     public function __construct() {
-        Parent::__construct();
+        
     }
 
     /**
