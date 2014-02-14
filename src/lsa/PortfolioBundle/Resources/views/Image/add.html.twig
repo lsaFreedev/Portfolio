@@ -1,0 +1,43 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : image{% endblock %}
+{% block header %}<h1>Protfolio : administration : image : Add</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+<form action="" method="post" {{ form_enctype(form) }} class="form-horizontal" >
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}    
+     <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.file, "image",{ 'label_attr': {'class': 'control-label'} } ) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.file) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.file, {'attr':{'class':'image'} } ) }}
+        </div>
+    </div>
+    <div class="control-group">
+        {# Génération du label. #}
+        {{ form_label(form.active, "Acive",{ 'label_attr': {'class': 'control-label'} } ) }}
+        <div class="controls">
+            {# Affichage des erreurs pour ce champ précis. #}       
+            {{ form_errors(form.active) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.active, {'attr':{'class':'active'} } ) }}
+        </div>
+    </div>   
+    <div class="control-group">
+         <div class="controls">                    
+            <a href="{{ path('portfolio_about_admin') }}" class="btn btn-primary" style="margin-right: 126px;" >Back</a>
+            {{ form_rest(form) }}    
+            {# {{ form(form) }} #}   
+            <input type="submit" name="add" value="Add" id="add" class="btn btn-warning" >
+         </div>         
+    </div>
+</form>
+{% endblock %}

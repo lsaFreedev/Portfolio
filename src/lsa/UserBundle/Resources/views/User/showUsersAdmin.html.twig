@@ -26,6 +26,15 @@
                 email
             </td>
             <td>
+                About
+            </td>
+            <td>
+                Image
+            </td>
+            <td>
+                CV
+            </td>
+            <td>
                 edit
             </td>
             <td>
@@ -39,6 +48,22 @@
             <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.firstname }}</a></td>
             <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.lastname }}</a></td>
             <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.email }}</a></td>
+            <td>               
+                   {% if user.about is not null %}
+                         <a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">{{ user.about.description }} </a>
+                   {% endif %}               
+            </td>
+            <td>
+                 {% if user.image is not null %}
+                    <a href="{{ asset('uploads/images/'~user.image.image) }}">{{ user.image.image }}</a>
+                 {% endif %}  
+            </td>
+                 
+            <td>
+                {% if user.cv is not null %}
+                    <a href="{{ asset('uploads/cv/'~user.cv.cv) }}">{{ user.cv.cv }}</a>
+                {% endif %}  
+            </td>
             <td><a href="{{ path( 'portfolio_user_edit_admin',{'user':user.id} ) }}">Edit</a></td>
             <td><a href="{{ path( 'portfolio_user_delete_admin',{'user':user.id} ) }}">Delete</a></td>
         </tr>    

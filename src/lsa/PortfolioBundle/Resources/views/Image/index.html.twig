@@ -1,0 +1,38 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : Image{% endblock %}
+{% block header %}<h1>Protfolio : administration : Image</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_image_add_admin') }}" class="btn btn-success">New</a> 
+</div>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td>ID</td>                   
+        <td>Image</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for image in images %}
+    <tr>
+        <td><a href="{{ path('portfolio_image_edit_admin',{'image':image.id}) }}">{{ image.id }}</a></td>        
+        <td><a href="{{ asset('uploads/images/'~image.image) }}">{{ image.image }}</a></td>
+        <td>
+            {% if image.active == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_image_edit_admin',{'image':image.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_image_delete_admin',{'image':image.id}) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

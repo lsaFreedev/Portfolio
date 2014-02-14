@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\NoResultException;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * UserRepository
@@ -65,4 +66,19 @@ class UserRepository extends EntityRepository implements UserProviderInterface
  
         return $qb->getQuery()->getResult();
     }
+    
+    public function getUsers(){
+        $qb = $this->createQueryBuilder('u')
+                    ->leftJoin('u.about', 'a')
+                    ->leftJoin('u.city', 'c')
+                    ->leftJoin('u.image', 'i')
+                    ->leftJoin('u.cv', 'cv')
+                    ->addSelect('a')
+                    ->addSelect('c')
+                    ->addSelect('i')
+                    ->addSelect('cv');;
+        //return new Response(var_dump($qb->getQuery()));// ->getResult();
+        return $qb->getQuery()->getResult();
+    }
+    
 }

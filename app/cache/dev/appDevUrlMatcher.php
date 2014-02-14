@@ -347,6 +347,52 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/admin/cv')) {
+                // portfolio_cv_admin
+                if ($pathinfo === '/admin/cv') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CvController::indexAction',  '_route' => 'portfolio_cv_admin',);
+                }
+
+                // portfolio_cv_add_admin
+                if ($pathinfo === '/admin/cv/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CvController::addAction',  '_route' => 'portfolio_cv_add_admin',);
+                }
+
+                // portfolio_cv_edit_admin
+                if (0 === strpos($pathinfo, '/admin/cv/edit') && preg_match('#^/admin/cv/edit/(?P<cv>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_cv_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CvController::editAction',));
+                }
+
+                // portfolio_cv_delete_admin
+                if (0 === strpos($pathinfo, '/admin/cv/delete') && preg_match('#^/admin/cv/delete/(?P<cv>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_cv_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\CvController::deleteAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/image')) {
+                // portfolio_image_admin
+                if ($pathinfo === '/admin/image') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ImageController::indexAction',  '_route' => 'portfolio_image_admin',);
+                }
+
+                // portfolio_image_add_admin
+                if ($pathinfo === '/admin/image/add') {
+                    return array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ImageController::addAction',  '_route' => 'portfolio_image_add_admin',);
+                }
+
+                // portfolio_image_edit_admin
+                if (0 === strpos($pathinfo, '/admin/image/edit') && preg_match('#^/admin/image/edit/(?P<image>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_image_edit_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ImageController::editAction',));
+                }
+
+                // portfolio_image_delete_admin
+                if (0 === strpos($pathinfo, '/admin/image/delete') && preg_match('#^/admin/image/delete/(?P<image>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'portfolio_image_delete_admin')), array (  '_controller' => 'lsa\\PortfolioBundle\\Controller\\ImageController::deleteAction',));
+                }
+
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/log')) {

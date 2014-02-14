@@ -1,0 +1,40 @@
+{% extends "::admin.html.twig" %}
+{% block title %}Portfolio : Administration : Cv{% endblock %}
+{% block header %}<h1>Protfolio : administration : Cv</h1>{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<div style="margin-bottom: 10px;">
+    <a href="{{ path('portfolio_cv_add_admin') }}" class="btn btn-success">New</a> 
+</div>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <td>ID</td>
+        <td>Title</td>               
+        <td>Cv</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% for cv in cvs %}
+    <tr>
+        <td><a href="{{ path('portfolio_cv_edit_admin',{'cv':cv.id}) }}">{{ cv.id }}</a></td>
+        <td><a href="{{ path('portfolio_cv_edit_admin',{'cv':cv.id}) }}">{{ cv.title }}</a></td>
+        <td><a href="{{ asset('uploads/cv/'~cv.cv) }}">{{ cv.cv }}</a></td>
+        <td>
+            {% if cv.active == 1 %}
+                <span class="badge badge-success">Yes</span>
+            {% else %}
+                <span class="badge text-center">No</span>
+            {% endif %}
+        </td>
+        <td><a href="{{ path('portfolio_cv_edit_admin',{'cv':cv.id}) }}">Edit</a></td>
+        <td><a href="{{ path('portfolio_cv_delete_admin',{'cv':cv.id}) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

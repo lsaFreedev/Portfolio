@@ -15,9 +15,10 @@ class CvType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('chemin')
-            ->add('active')
+            ->add('title','text')
+            //->add('cv')
+            ->add('file')
+            ->add('active','checkbox',array('required'=>false))
         ;
     }
     

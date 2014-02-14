@@ -45,6 +45,7 @@ class CvController extends Controller {
                 $em->flush();
                 // On définit un message flash
                 $this->get('session')->getFlashBag()->add('info', 'cv bien ajouté');
+                return $this->redirect($this->generateUrl('portfolio_cv_admin'));
             }
         }
 
@@ -71,6 +72,7 @@ class CvController extends Controller {
                     $em->flush();
                     // On définit un message flash
                     $this->get('session')->getFlashBag()->add('info', 'Cv bien modifié');
+                    return $this->redirect($this->generateUrl('portfolio_cv_admin'));
                 }
             }
                         

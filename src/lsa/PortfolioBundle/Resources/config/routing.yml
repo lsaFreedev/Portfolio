@@ -170,7 +170,7 @@ portfolio_activity_delete_admin:
     requirements:
         activity: \d+ 
  
- #rout Abouts
+#rout Abouts
 portfolio_about_admin:
     pattern: /admin/about
     defaults: {_controller: PortfolioBundle:About:index }   
@@ -190,6 +190,50 @@ portfolio_about_delete_admin:
     defaults: {_controller: PortfolioBundle:About:delete }
     requirements:
         about: \d+ 
+
+#rout CV
+portfolio_cv_admin:
+    pattern: /admin/cv
+    defaults: {_controller: PortfolioBundle:Cv:index }   
+
+portfolio_cv_add_admin:
+    pattern: /admin/cv/add
+    defaults: {_controller: PortfolioBundle:Cv:add }
+        
+portfolio_cv_edit_admin:
+    pattern: /admin/cv/edit/{cv}
+    defaults: {_controller: PortfolioBundle:Cv:edit }
+    requirements:
+        cv: \d+
+
+portfolio_cv_delete_admin:
+    pattern: /admin/cv/delete/{cv}
+    defaults: {_controller: PortfolioBundle:Cv:delete }
+    requirements:
+        cv: \d+ 
+
+#rout Image
+portfolio_image_admin:
+    pattern: /admin/image
+    defaults: {_controller: PortfolioBundle:Image:index }   
+
+portfolio_image_add_admin:
+    pattern: /admin/image/add
+    defaults: {_controller: PortfolioBundle:Image:add }
+        
+portfolio_image_edit_admin:
+    pattern: /admin/image/edit/{image}
+    defaults: {_controller: PortfolioBundle:Image:edit }
+    requirements:
+        image: \d+
+
+portfolio_image_delete_admin:
+    pattern: /admin/image/delete/{image}
+    defaults: {_controller: PortfolioBundle:Image:delete }
+    requirements:
+        image: \d+ 
+               
+       
                                
 
  

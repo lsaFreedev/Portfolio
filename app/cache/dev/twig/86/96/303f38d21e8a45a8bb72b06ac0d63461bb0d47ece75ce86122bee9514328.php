@@ -57,6 +57,15 @@ class __TwigTemplate_8696303f38d21e8a45a8bb72b06ac0d63461bb0d47ece75ce86122bee95
                 email
             </td>
             <td>
+                About
+            </td>
+            <td>
+                Image
+            </td>
+            <td>
+                CV
+            </td>
+            <td>
                 edit
             </td>
             <td>
@@ -64,48 +73,94 @@ class __TwigTemplate_8696303f38d21e8a45a8bb72b06ac0d63461bb0d47ece75ce86122bee95
             </td>
         </tr>
         ";
-        // line 35
+        // line 44
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["users"]) ? $context["users"] : $this->getContext($context, "users")));
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 36
+            // line 45
             echo "        <tr>
             <td><a href=\"";
-            // line 37
+            // line 46
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_edit_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"), "html", null, true);
             echo "</a></td>
             <td><a href=\"";
-            // line 38
+            // line 47
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_edit_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username"), "html", null, true);
             echo "</a></td>
             <td><a href=\"";
-            // line 39
+            // line 48
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_edit_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "firstname"), "html", null, true);
             echo "</a></td>
             <td><a href=\"";
-            // line 40
+            // line 49
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_edit_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "lastname"), "html", null, true);
             echo "</a></td>
             <td><a href=\"";
-            // line 41
+            // line 50
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_edit_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "email"), "html", null, true);
             echo "</a></td>
+            <td>               
+                   ";
+            // line 52
+            if ((!(null === $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "about")))) {
+                // line 53
+                echo "                         <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_edit_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "about"), "description"), "html", null, true);
+                echo " </a>
+                   ";
+            }
+            // line 54
+            echo "               
+            </td>
+            <td>
+                 ";
+            // line 57
+            if ((!(null === $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "image")))) {
+                // line 58
+                echo "                    <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("uploads/images/" . $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "image"), "image"))), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "image"), "image"), "html", null, true);
+                echo "</a>
+                 ";
+            }
+            // line 59
+            echo "  
+            </td>
+                 
+            <td>
+                ";
+            // line 63
+            if ((!(null === $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cv")))) {
+                // line 64
+                echo "                    <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("uploads/cv/" . $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cv"), "cv"))), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cv"), "cv"), "html", null, true);
+                echo "</a>
+                ";
+            }
+            // line 65
+            echo "  
+            </td>
             <td><a href=\"";
-            // line 42
+            // line 67
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_edit_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
             echo "\">Edit</a></td>
             <td><a href=\"";
-            // line 43
+            // line 68
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("portfolio_user_delete_admin", array("user" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "id"))), "html", null, true);
             echo "\">Delete</a></td>
         </tr>    
@@ -114,7 +169,7 @@ class __TwigTemplate_8696303f38d21e8a45a8bb72b06ac0d63461bb0d47ece75ce86122bee95
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 46
+        // line 71
         echo "    </table>
 ";
     }
@@ -137,6 +192,6 @@ class __TwigTemplate_8696303f38d21e8a45a8bb72b06ac0d63461bb0d47ece75ce86122bee95
 
     public function getDebugInfo()
     {
-        return array (  123 => 10,  118 => 46,  109 => 43,  105 => 42,  99 => 41,  93 => 40,  87 => 39,  81 => 38,  75 => 37,  72 => 36,  68 => 35,  40 => 10,  32 => 4,  29 => 3,  73 => 22,  64 => 11,  57 => 9,  54 => 8,  48 => 6,  45 => 5,  42 => 11,  36 => 3,  30 => 2,);
+        return array (  178 => 10,  173 => 71,  164 => 68,  160 => 67,  156 => 65,  148 => 64,  146 => 63,  140 => 59,  132 => 58,  130 => 57,  125 => 54,  117 => 53,  115 => 52,  108 => 50,  102 => 49,  96 => 48,  90 => 47,  84 => 46,  81 => 45,  77 => 44,  42 => 11,  40 => 10,  32 => 4,  29 => 3,);
     }
 }

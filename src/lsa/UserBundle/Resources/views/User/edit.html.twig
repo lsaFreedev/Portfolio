@@ -141,7 +141,57 @@
                 
                 
             </div>
-        </div>        
+        </div> 
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.about.description, "description",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.about.description) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.about.description, {'attr':{'class':'description'} } ) }}                
+            </div>
+        </div>
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.about.active, "Active",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.about.active) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.about.active, {'attr':{'class':'active'} } ) }}                                
+            </div>
+        </div>  
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.cv.title, "title",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.cv.title) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.cv.title, {'attr':{'class':'title'} } ) }}                
+            </div>
+        </div>
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.cv.file, "cv",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.cv.file) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.cv.file, {'attr':{'class':'cv'} } ) }}                
+            </div>
+        </div>
+        <div class="control-group">
+            {# Génération du label. #}
+            {{ form_label(form.cv.active, "Active",{ 'label_attr': {'class': 'control-label'} } ) }}
+            <div class="controls">
+                {# Affichage des erreurs pour ce champ précis. #}       
+                {{ form_errors(form.cv.active) }}
+                {# Génération de l'input. #}
+                {{ form_widget(form.cv.active, {'attr':{'class':'active'} } ) }}                                
+            </div>
+        </div>  
          <div class="control-group">
             {{ form_rest(form) }}  
             <div class="controls">

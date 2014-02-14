@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="Cv")
  * @ORM\Entity(repositoryClass="lsa\PortfolioBundle\Entity\CvRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Cv {
     
@@ -23,9 +24,9 @@ class Cv {
     private $title;
     
     /**
-    * @ORM\Column(name="chemin",type="string")
+    * @ORM\Column(name="cv",type="string")
     */
-    private $chemin;
+    private $cv;
     
      /**
      * @Assert\File(maxSize="6000000")
@@ -75,14 +76,14 @@ class Cv {
     }
     
     /**
-     * Set chemin
+     * Set cv
      *
-     * @param string $chemin
+     * @param string $cv
      * @return Cv
      */
-    public function setChemin($chemin)
+    public function setCv($cv)
     {
-        $this->chemin = $chemin;
+        $this->cv = $cv;
 
         return $this;
     }
@@ -92,9 +93,9 @@ class Cv {
      *
      * @return string 
      */
-    public function getChemin()
+    public function getCv()
     {
-        return $this->chemin;
+        return $this->cv;
     }
     
 
@@ -149,17 +150,17 @@ class Cv {
      */
     public function getAbsolutePath()
     {
-        return null === $this->chemin ? null : $this->getUploadRootDir().'/'.$this->chemin;
+        return null === $this->cv ? null : $this->getUploadRootDir().'/'.$this->cv;
     }
 
     public function getWebPath()
     {
-        return null === $this->chemin ? null : $this->getUploadDir().'/'.$this->chemin;
+        return null === $this->cv ? null : $this->getUploadDir().'/'.$this->cv;
     }
 
     protected function getUploadRootDir()
     {
-        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        // le cv absolu du répertoire où les documents uploadés doivent être sauvegardés
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
@@ -180,7 +181,7 @@ class Cv {
         if (null !== $this->file) {
             // faites ce que vous voulez pour générer un nom unique
             //$this->image = sha1(uniqid(mt_rand(), true)).'.'.$this->file->guessExtension();
-            $this->chemin = $this->file->getClientOriginalName();
+            $this->cv = $this->file->getClientOriginalName();
         }
     }
     
@@ -200,7 +201,7 @@ class Cv {
 
         // la méthode « move » prend comme arguments le répertoire cible et
         // le nom de fichier cible où le fichier doit être déplacé
-        $this->file->move($this->getUploadRootDir(), $this->chemin);
+        $this->file->move($this->getUploadRootDir(), $this->cv);
        
         // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
         $this->file = null;

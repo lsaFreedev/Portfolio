@@ -55,31 +55,31 @@ class __TwigTemplate_2fadbe7e3c4884783b7d49b62d408eb21ca6ce66921eae6ae4632538647
                      ";
         // line 22
         $this->displayBlock('nav', $context, $blocks);
-        // line 35
+        // line 37
         echo "                     
                      ";
-        // line 36
+        // line 38
         $this->displayBlock('aside', $context, $blocks);
-        // line 39
+        // line 41
         echo "                 </div>
                  <div class=\"span10 well well-larg\">
                      ";
-        // line 41
+        // line 43
         $this->displayBlock('body', $context, $blocks);
-        // line 44
+        // line 46
         echo "                 </div>   
             </div>
             <div class=\"clear\"></div>
             <footer class=\"row-fluid well-small text-center\">
                 ";
-        // line 48
+        // line 50
         $this->displayBlock('footer', $context, $blocks);
-        // line 51
+        // line 53
         echo "            </footer>
             ";
-        // line 52
+        // line 54
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 53
+        // line 55
         echo "       </div>
     </body>    
 </html>
@@ -153,45 +153,53 @@ class __TwigTemplate_2fadbe7e3c4884783b7d49b62d408eb21ca6ce66921eae6ae4632538647
         echo "\">Projets</a></li>
                              <li><a href=\"";
         // line 31
+        echo $this->env->getExtension('routing')->getPath("portfolio_cv_admin");
+        echo "\">Cv</a></li>
+                             <li><a href=\"";
+        // line 32
+        echo $this->env->getExtension('routing')->getPath("portfolio_image_admin");
+        echo "\">Images</a></li>
+                             <li><a href=\"";
+        // line 33
         echo $this->env->getExtension('routing')->getPath("portfolio_activity_admin");
         echo "\">Loisir</a></li>
                              <li><a href=\"";
-        // line 32
+        // line 34
         echo $this->env->getExtension('routing')->getPath("portfolio_city_admin");
         echo "\">City</a></li>
                              <li><a href=\"";
-        // line 33
+        // line 35
         echo $this->env->getExtension('routing')->getPath("portfolio_level_admin");
         echo "\">Level</a></li>
                          </ul>
                      ";
     }
 
-    // line 36
+    // line 38
     public function block_aside($context, array $blocks = array())
     {
-        // line 37
+        // line 39
         echo "                       <!-- aside-->
                      ";
     }
 
-    // line 41
+    // line 43
     public function block_body($context, array $blocks = array())
     {
-        // line 42
+        // line 44
         echo "                         body
                      ";
     }
 
-    // line 48
+    // line 50
     public function block_footer($context, array $blocks = array())
     {
-        // line 49
+        // line 51
         echo "                    <p>Lsa FreeDev &copy; 2014</p>
                 ";
     }
 
-    // line 52
+    // line 54
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -208,6 +216,6 @@ class __TwigTemplate_2fadbe7e3c4884783b7d49b62d408eb21ca6ce66921eae6ae4632538647
 
     public function getDebugInfo()
     {
-        return array (  195 => 52,  190 => 49,  187 => 48,  182 => 42,  179 => 41,  174 => 37,  171 => 36,  164 => 33,  160 => 32,  156 => 31,  152 => 30,  148 => 29,  144 => 28,  140 => 27,  136 => 26,  132 => 25,  128 => 24,  125 => 23,  122 => 22,  117 => 17,  114 => 16,  108 => 9,  104 => 8,  99 => 7,  96 => 6,  90 => 4,  83 => 53,  81 => 52,  78 => 51,  76 => 48,  70 => 44,  68 => 41,  64 => 39,  62 => 36,  59 => 35,  57 => 22,  52 => 19,  50 => 16,  42 => 11,  39 => 10,  37 => 6,  32 => 4,  27 => 1,);
+        return array (  203 => 54,  198 => 51,  195 => 50,  190 => 44,  187 => 43,  182 => 39,  179 => 38,  172 => 35,  168 => 34,  164 => 33,  160 => 32,  156 => 31,  152 => 30,  148 => 29,  144 => 28,  140 => 27,  136 => 26,  132 => 25,  128 => 24,  125 => 23,  122 => 22,  117 => 17,  114 => 16,  108 => 9,  104 => 8,  99 => 7,  96 => 6,  90 => 4,  83 => 55,  81 => 54,  78 => 53,  76 => 50,  70 => 46,  68 => 43,  64 => 41,  62 => 38,  59 => 37,  57 => 22,  52 => 19,  50 => 16,  42 => 11,  39 => 10,  37 => 6,  32 => 4,  27 => 1,);
     }
 }

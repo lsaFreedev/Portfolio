@@ -25,6 +25,15 @@
             <td>
                 email
             </td>
+            <td>
+                About
+            </td>
+            <td>
+                Image
+            </td>
+            <td>
+                CV
+            </td>
         </tr>
         {% for user in users %}
         <tr>
@@ -33,6 +42,9 @@
             <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.firstname }}</a></td>
             <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.lastname }}</a></td>
             <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.email }}</a></td>
+            <td><a href="{{ path( controller,{'user':user.id} ) }}">{{ user.about.description }}</a></td>
+            <td><a href="{{ asset('uploads/images/'~user.image.image) }}">{{ user.image.image }}</a></td>
+            <td><a href="{{ asset('uploads/images/'~user.cv.cv) }}">{{ user.cv.cv }}</a></td>
         </tr>    
         {% endfor %}
     </table>

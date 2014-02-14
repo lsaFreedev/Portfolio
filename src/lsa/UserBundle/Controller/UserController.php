@@ -35,8 +35,9 @@ class UserController extends Controller {
             }
         }
         else{
-            $users = $em->getRepository('UserBundle:User')->findAll(); 
+            $users = $em->getRepository('UserBundle:User')->getUsers(); 
         }
+       // return new Response(var_dump($users));
        return $this->render('UserBundle:User:index.html.twig',array('users'=>$users,'actionForm'=>'portfolio_user_admin','controller'=>'portfolio_user_admin'));
     }
     
@@ -62,7 +63,8 @@ class UserController extends Controller {
                 $user->setPassword($password);
                 
                 $em->persist($user->getImage());
-                
+                $em->persist($user->getAbout());    
+                $em->persist($user->getCv());   
                 
                 $em->persist($user);
                 $em->flush();
@@ -100,8 +102,15 @@ class UserController extends Controller {
                     // On applique le mot de passe à l'utilisateur
                     $user->setPassword($password); 
                     //là setImage c juste pr chnger qlq chose ds l'instance image afin que les evenement preupdat et postupdate soit déclencher 
-                    $user->getImage()->setImage('');                    
+                    if(!is_null($user->getImage()->getFile())){
+                        $user->getImage()->setImage('');                    
+                    }
                     $em->persist($user->getImage());                                       
+                    $em->persist($user->getAbout()); 
+                    if(!is_null($user->getCv()->getFile())){
+                        $user->getCv()->setCv('');                    
+                    }
+                    $em->persist($user->getCv());    
                     $em->persist($user);
                     $em->flush();
                     // On définit un message flash
@@ -111,7 +120,7 @@ class UserController extends Controller {
             }
                         
             return $this->render('UserBundle:User:edit.html.twig', array(
-                        'image'=>$user->getImage()->getImage(),
+                        'image'=>( $user->getImage()!=null ? $user->getImage()->getImage() : '' ),
                         'form'=>$form->createView())
                     );            
         }

@@ -63,7 +63,7 @@ class User implements AdvancedUserInterface, \Serializable {
     private $about;
 
     /**
-     * @ORM\OneToOne(targetEntity="lsa\PortfolioBundle\entity\Cv",cascade={"remove"})
+     * @ORM\OneToOne(targetEntity="lsa\PortfolioBundle\Entity\Cv",cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $cv;
@@ -75,7 +75,7 @@ class User implements AdvancedUserInterface, \Serializable {
     private $level;
 
     /**
-     * @ORM\OneToOne(targetEntity="lsa\portfoliobundle\Entity\Images",cascade={"all"})
+     * @ORM\OneToOne(targetEntity="lsa\PortfolioBundle\Entity\Images",cascade={"all"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $image;
@@ -340,7 +340,7 @@ class User implements AdvancedUserInterface, \Serializable {
      * @param \lsa\portfoliobundle\Entity\Images $image
      * @return User
      */
-    public function setImage(\lsa\portfoliobundle\Entity\Images $image = null)
+    public function setImage(\lsa\Portfoliobundle\Entity\Images $image = null)
     {
         $this->image = $image;
 

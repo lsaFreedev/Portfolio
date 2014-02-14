@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use lsa\PortfolioBundle\Form\ImagesType;
+use lsa\PortfolioBundle\Form\AboutType;
+use lsa\PortfolioBundle\Form\CvType;
 
 class UserType extends AbstractType
 {
@@ -39,9 +41,9 @@ class UserType extends AbstractType
                                         'property' => 'level'))
             ->add('image',new ImagesType())
             
-           /* ->add('about')
-            ->add('cv')          
-            */
+            ->add('about', new AboutType())
+            ->add('cv', new CvType())          
+            
         ;
     }
     
